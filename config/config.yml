@@ -17,10 +17,14 @@ safety:
   min_ai_score: 65              # Minimum Claude evaluation score (0-100)
   min_approvals: 2              # Minimum PR approvals before merge triggers trade
   ban_penny_stocks: true        # Reject tickers trading under $5
+  crypto_min_price: 0.001       # Minimum price for crypto (block dust tokens)
   banned_tickers_file: "config/banned_tickers.txt"
   allowed_actions:
     - "BUY"
     - "SELL"
+  allowed_asset_classes:
+    - "STOCK"
+    - "CRYPTO"
 
 # AI evaluation scoring rubric
 evaluation:

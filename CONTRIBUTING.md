@@ -9,7 +9,7 @@
 
 ## How to Submit
 
-1. Fork the repo and create a branch named `trade/TICKER-ACTION` (e.g. `trade/AAPL-BUY`).
+1. Fork the repo and create a branch named `trade/TICKER-ACTION` (e.g. `trade/AAPL-BUY` or `trade/BTC-USD-BUY` for crypto).
 2. Open a PR using the provided template. Fill in both the YAML block and the markdown pitch.
 3. Wait for the AI evaluation comment (posted automatically within minutes).
 4. Address any feedback from reviewers. Iterate on your pitch if needed.
@@ -41,6 +41,7 @@
 - Use hype language ("moonshot", "guaranteed", "can't lose")
 - Ignore downside risk
 - Submit penny stocks (under $5) or banned tickers
+- Submit dust tokens (crypto under $0.001)
 - Write fewer than 200 characters
 - Propose more than $500 per trade
 
@@ -49,6 +50,7 @@
 ```yaml
 ticker: "MSFT"
 action: "BUY"
+asset_class: "STOCK"
 suggested_amount: 400
 ```
 
@@ -74,6 +76,38 @@ Microsoft is well-positioned in the enterprise AI infrastructure cycle. Azure re
 
 - **Time Horizon:** Medium-term (6-12 months)
 - **Confidence:** Medium — strong fundamentals, but macro uncertainty
+
+## Example: Crypto Proposal
+
+```yaml
+ticker: "BTC/USD"
+action: "BUY"
+asset_class: "CRYPTO"
+suggested_amount: 500
+```
+
+### Investment Thesis
+
+Bitcoin's fourth halving cycle (April 2024) has historically preceded 12-18 month bull runs. On-chain metrics show accumulation by long-term holders, and institutional inflows via spot ETFs are creating sustained demand pressure.
+
+### Fundamental Analysis
+
+- Hash rate at all-time highs (network security)
+- Spot ETF daily inflows averaging $200M+
+- Supply on exchanges at multi-year lows
+- Post-halving supply shock reducing new issuance by 50%
+
+### Risk Factors
+
+- Regulatory crackdowns in major markets
+- Macro risk: correlation with risk assets during liquidity crises
+- Extreme volatility — 30%+ drawdowns are normal
+- Concentration risk in a single digital asset
+
+### Time Horizon & Confidence
+
+- **Time Horizon:** Medium-term (6-12 months)
+- **Confidence:** Medium — strong on-chain data, but crypto volatility is inherent
 
 ## After Your Trade Executes
 

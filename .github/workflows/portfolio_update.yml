@@ -2,8 +2,8 @@ name: Daily Portfolio Update
 
 on:
   schedule:
-    # 4:05 PM ET on weekdays (after market close)
-    - cron: "5 21 * * 1-5"
+    # 4:05 PM ET daily (weekdays for stocks, every day for crypto)
+    - cron: "5 21 * * *"
   workflow_dispatch:
 
 permissions:
