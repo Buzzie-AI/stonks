@@ -1,15 +1,146 @@
 {
-  "positions": [],
+  "positions": [
+    {
+      "symbol": "ETHUSD",
+      "qty": 0.049639164,
+      "avg_entry_price": 1969.61,
+      "current_price": 1975.27,
+      "market_value": 98.050751,
+      "unrealized_pl": 0.280957,
+      "unrealized_plpc": 0.29,
+      "side": "PositionSide.LONG"
+    },
+    {
+      "symbol": "BTCUSD",
+      "qty": 0.001453976,
+      "avg_entry_price": 67251.1,
+      "current_price": 67329.9,
+      "market_value": 97.896059,
+      "unrealized_pl": 0.114574,
+      "unrealized_plpc": 0.12,
+      "side": "PositionSide.LONG"
+    },
+    {
+      "symbol": "FUTU",
+      "qty": 0.384304984,
+      "avg_entry_price": 52.042,
+      "current_price": 148.84,
+      "market_value": 57.199954,
+      "unrealized_pl": 37.199954,
+      "unrealized_plpc": 186.0,
+      "side": "PositionSide.LONG"
+    },
+    {
+      "symbol": "BOOT",
+      "qty": 0.273440704,
+      "avg_entry_price": 73.142,
+      "current_price": 189.22,
+      "market_value": 51.74045,
+      "unrealized_pl": 31.74045,
+      "unrealized_plpc": 158.7,
+      "side": "PositionSide.LONG"
+    },
+    {
+      "symbol": "CMA",
+      "qty": 0.360711322,
+      "avg_entry_price": 55.446,
+      "current_price": 88.67,
+      "market_value": 31.984273,
+      "unrealized_pl": 11.984273,
+      "unrealized_plpc": 59.92,
+      "side": "PositionSide.LONG"
+    },
+    {
+      "symbol": "EMR",
+      "qty": 0.209432855,
+      "avg_entry_price": 95.496,
+      "current_price": 150.75,
+      "market_value": 31.572003,
+      "unrealized_pl": 11.572003,
+      "unrealized_plpc": 57.86,
+      "side": "PositionSide.LONG"
+    },
+    {
+      "symbol": "GTLS",
+      "qty": 0.14690112,
+      "avg_entry_price": 136.146,
+      "current_price": 207.3,
+      "market_value": 30.452602,
+      "unrealized_pl": 10.452602,
+      "unrealized_plpc": 52.26,
+      "side": "PositionSide.LONG"
+    },
+    {
+      "symbol": "TFC",
+      "qty": 0.537518813,
+      "avg_entry_price": 37.208,
+      "current_price": 49.31,
+      "market_value": 26.505053,
+      "unrealized_pl": 6.505053,
+      "unrealized_plpc": 32.52,
+      "side": "PositionSide.LONG"
+    },
+    {
+      "symbol": "MUSA",
+      "qty": 0.05306391,
+      "avg_entry_price": 376.904,
+      "current_price": 390.74,
+      "market_value": 20.734192,
+      "unrealized_pl": 0.734192,
+      "unrealized_plpc": 3.67,
+      "side": "PositionSide.LONG"
+    },
+    {
+      "symbol": "DNB",
+      "qty": 1.63692912,
+      "avg_entry_price": 12.218,
+      "current_price": 9.15,
+      "market_value": 14.977901,
+      "unrealized_pl": -5.022099,
+      "unrealized_plpc": -25.11,
+      "side": "PositionSide.LONG"
+    },
+    {
+      "symbol": "EXTR",
+      "qty": 1.0,
+      "avg_entry_price": 11.54,
+      "current_price": 13.98,
+      "market_value": 13.98,
+      "unrealized_pl": 2.44,
+      "unrealized_plpc": 21.14,
+      "side": "PositionSide.LONG"
+    },
+    {
+      "symbol": "FRSH",
+      "qty": 0.910829765,
+      "avg_entry_price": 21.958,
+      "current_price": 7.82,
+      "market_value": 7.122689,
+      "unrealized_pl": -12.877311,
+      "unrealized_plpc": -64.39,
+      "side": "PositionSide.LONG"
+    },
+    {
+      "symbol": "BBBY",
+      "qty": 0.75832259,
+      "avg_entry_price": 26.374,
+      "current_price": 5.33,
+      "market_value": 4.041859,
+      "unrealized_pl": -15.958141,
+      "unrealized_plpc": -79.79,
+      "side": "PositionSide.LONG"
+    }
+  ],
   "totals": {
-    "total_value": 0,
-    "total_pl": 0,
-    "total_plpc": 0,
-    "position_count": 0,
-    "updated_at": null
+    "total_value": 486.26,
+    "total_pl": 79.17,
+    "total_plpc": 19.45,
+    "position_count": 13,
+    "updated_at": "2026-02-28T22:58:19.686420+00:00"
   },
   "account": {
-    "cash": 0,
-    "portfolio_value": 0,
-    "buying_power": 0
+    "cash": 93.99,
+    "portfolio_value": 580.25,
+    "buying_power": 93.99
   }
 }

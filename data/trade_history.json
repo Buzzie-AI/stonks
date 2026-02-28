@@ -1,9 +1,24 @@
 {
-  "trades": [],
+  "trades": [
+    {
+      "id": "trade_0001",
+      "pr_number": 5,
+      "ticker": "ETH/USD",
+      "action": "BUY",
+      "quantity": 0.0508,
+      "price": 1968.921,
+      "notional": 100.0,
+      "order_id": "4fa07932-f7b0-43dc-bb0c-935ba5d9c3c4",
+      "executed_at": "2026-02-28T22:58:18.766762+00:00",
+      "ai_score": 78,
+      "approval_count": 0,
+      "status": "filled"
+    }
+  ],
   "summary": {
-    "total_trades": 0,
-    "successful_trades": 0,
+    "total_trades": 1,
+    "successful_trades": 1,
     "failed_trades": 0,
-    "total_capital_deployed": 0
+    "total_capital_deployed": 100.0
   }
 }
