@@ -1,0 +1,15 @@
+{
+  "positions": [],
+  "totals": {
+    "total_value": 0,
+    "total_pl": 0,
+    "total_plpc": 0,
+    "position_count": 0,
+    "updated_at": null
+  },
+  "account": {
+    "cash": 0,
+    "portfolio_value": 0,
+    "buying_power": 0
+  }
+}

@@ -1,0 +1,8 @@
+# Banned Tickers
+# One symbol per line. Lines starting with # are comments.
+# Add tickers here that should never be traded.
+#
+# Examples of why a ticker might be banned:
+#   - Delisted or fraudulent
+#   - Community governance decision
+#   - Extreme manipulation risk

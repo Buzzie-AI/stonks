@@ -1,0 +1,42 @@
+# ============================================
+# Git-Based Investment Portfolio Configuration
+# ============================================
+
+alpaca:
+  base_url: "https://api.alpaca.markets"
+  api_version: "v2"
+
+anthropic:
+  model: "claude-sonnet-4-5-20250929"
+
+# Safety guardrails (CRITICAL — this is live trading)
+safety:
+  max_position_size: 500        # Max dollars per single trade
+  max_trades_per_day: 3         # Max trades executed in one calendar day
+  min_ai_score: 65              # Minimum Claude evaluation score (0-100)
+  min_approvals: 2              # Minimum PR approvals before merge triggers trade
+  ban_penny_stocks: true        # Reject tickers trading under $5
+  banned_tickers_file: "config/banned_tickers.txt"
+  allowed_actions:
+    - "BUY"
+    - "SELL"
+
+# AI evaluation scoring rubric
+evaluation:
+  dimensions:
+    pitch_quality: 20           # Clear, well-structured thesis
+    fundamental_analysis: 25    # Data-driven reasoning
+    risk_assessment: 20         # Honest risk acknowledgment
+    market_outlook: 20          # Realistic time horizon and targets
+    strategy_alignment: 15      # Fit with portfolio strategy
+  min_pitch_characters: 200     # Minimum pitch length
+
+# Portfolio constraints
+portfolio:
+  max_single_position_pct: 20   # Max % of portfolio in one stock
+  starting_cash: 10000          # Initial funding amount (for reference)
+
+# Logging
+logging:
+  trade_history_file: "data/trade_history.json"
+  portfolio_file: "data/portfolio.json"

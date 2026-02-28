@@ -1,0 +1,130 @@
+name: Execute Approved Trade
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  execute:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Parse PR content
+        run: |
+          python scripts/parse_pr.py \
+            --pr-number ${{ github.event.pull_request.number }} \
+            --repo ${{ github.repository }} \
+            --output /tmp/trade_proposal.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Re-evaluate pitch (safety check)
+        run: |
+          python scripts/evaluate_pitch.py \
+            --proposal /tmp/trade_proposal.json \
+            --config config/config.yml \
+            --output /tmp/evaluation_result.json
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Execute trade
+        id: trade
+        run: |
+          python scripts/execute_trade.py \
+            --proposal /tmp/trade_proposal.json \
+            --evaluation /tmp/evaluation_result.json \
+            --config config/config.yml \
+            --output /tmp/trade_execution.json
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+
+      - name: Update portfolio & log trade
+        if: success()
+        run: |
+          python scripts/update_portfolio.py \
+            --config config/config.yml \
+            --log-trade /tmp/trade_execution.json
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+
+      - name: Commit updated data files
+        if: success()
+        run: |
+          git config user.name "stonks-bot"
+          git config user.email "bot@stonks-portfolio.local"
+          git add data/portfolio.json data/trade_history.json README.md
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "trade: ${{ github.event.pull_request.title }} (PR #${{ github.event.pull_request.number }})"
+            git push
+          fi
+
+      - name: Post execution result
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let comment;
+
+            try {
+              const result = JSON.parse(fs.readFileSync('/tmp/trade_execution.json', 'utf8'));
+
+              if (result.success) {
+                comment = `## ✅ Trade Executed
+
+            | Field | Value |
+            |-------|-------|
+            | **Ticker** | ${result.ticker} |
+            | **Action** | ${result.action} |
+            | **Quantity** | ${result.quantity} |
+            | **Est. Price** | $${result.price?.toFixed(2) || 'Market'} |
+            | **Notional** | $${result.notional?.toFixed(2) || 'N/A'} |
+            | **Order ID** | \`${result.order_id}\` |
+            | **AI Score** | ${result.ai_score}/100 |
+            | **Approvals** | ${result.approval_count} |
+
+            _Executed at ${result.executed_at}_`;
+              } else {
+                comment = `## ❌ Trade Rejected
+
+            **Ticker:** ${result.ticker}
+            **Action:** ${result.action}
+            **Reason:** ${result.error}
+
+            _The trade did not execute. See the error above for details._`;
+              }
+            } catch (e) {
+              comment = `## ⚠️ Trade Execution Error
+
+            An unexpected error occurred during trade execution. A maintainer will investigate.
+
+            \`\`\`
+            ${e.message}
+            \`\`\``;
+            }
+
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment,
+            });

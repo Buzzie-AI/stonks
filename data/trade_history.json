@@ -1,0 +1,9 @@
+{
+  "trades": [],
+  "summary": {
+    "total_trades": 0,
+    "successful_trades": 0,
+    "failed_trades": 0,
+    "total_capital_deployed": 0
+  }
+}

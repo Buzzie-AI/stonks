@@ -1,0 +1,129 @@
+name: Evaluate Trade Pitch
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Parse PR content
+        run: |
+          python scripts/parse_pr.py \
+            --pr-number ${{ github.event.pull_request.number }} \
+            --repo ${{ github.repository }} \
+            --output /tmp/trade_proposal.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Evaluate pitch with Claude
+        run: |
+          python scripts/evaluate_pitch.py \
+            --proposal /tmp/trade_proposal.json \
+            --config config/config.yml \
+            --output /tmp/evaluation_result.json
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Post evaluation comment
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+
+            let comment;
+            try {
+              const eval_result = JSON.parse(fs.readFileSync('/tmp/evaluation_result.json', 'utf8'));
+              const dims = eval_result.dimensions || {};
+              const flags = (eval_result.red_flags || []).length > 0
+                ? eval_result.red_flags.map(f => `- ${f}`).join('\n')
+                : '_None detected_';
+
+              const scoreBar = '█'.repeat(Math.round(eval_result.score / 5)) +
+                               '░'.repeat(20 - Math.round(eval_result.score / 5));
+
+              comment = `## 🤖 AI Pitch Evaluation
+
+            **Score: ${eval_result.score}/100** \`${scoreBar}\`
+            **Sentiment:** ${eval_result.sentiment} | **Recommendation:** ${eval_result.recommendation}
+
+            ### Dimension Breakdown
+
+            | Dimension | Score | Max |
+            |-----------|-------|-----|
+            | Pitch Quality | ${dims.pitch_quality || 0} | 20 |
+            | Fundamental Analysis | ${dims.fundamental_analysis || 0} | 25 |
+            | Risk Assessment | ${dims.risk_assessment || 0} | 20 |
+            | Market Outlook | ${dims.market_outlook || 0} | 20 |
+            | Strategy Alignment | ${dims.strategy_alignment || 0} | 15 |
+
+            ### Red Flags
+            ${flags}
+
+            ### Detailed Analysis
+            ${eval_result.detailed_analysis || 'N/A'}
+
+            ---
+            _Evaluated by Claude API at ${eval_result.timestamp || new Date().toISOString()}_
+            _Minimum score for trade execution: **65/100** + **2 approvals**_`;
+            } catch (e) {
+              // If evaluation file doesn't exist, check for parse errors
+              try {
+                const proposal = JSON.parse(fs.readFileSync('/tmp/trade_proposal.json', 'utf8'));
+                if (!proposal.is_valid) {
+                  const errors = (proposal.validation_errors || []).map(e => `- ${e}`).join('\n');
+                  comment = `## 🤖 AI Pitch Evaluation
+
+            **Score: 0/100** — Proposal failed validation.
+
+            ### Errors
+            ${errors}
+
+            Please fix the issues above and update your PR.`;
+                } else {
+                  comment = `## 🤖 AI Pitch Evaluation\n\n⚠️ Evaluation encountered an error. A maintainer will review manually.`;
+                }
+              } catch {
+                comment = `## 🤖 AI Pitch Evaluation\n\n⚠️ Could not parse the PR body. Please ensure you used the PR template correctly.`;
+              }
+            }
+
+            // Delete previous bot comments to avoid clutter
+            const { data: comments } = await github.rest.issues.listComments({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            });
+            for (const c of comments) {
+              if (c.body.startsWith('## 🤖 AI Pitch Evaluation') && c.user.type === 'Bot') {
+                await github.rest.issues.deleteComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  comment_id: c.id,
+                });
+              }
+            }
+
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment,
+            });
