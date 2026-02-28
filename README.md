@@ -70,9 +70,13 @@ Set these in your repo's **Settings → Secrets and variables → Actions**:
 
 `GITHUB_TOKEN` is provided automatically by GitHub Actions.
 
-## Risk Disclaimer
+## Important Disclaimers
 
-**This portfolio trades with real capital.** Past performance does not guarantee future results. All investments carry risk of loss. Contributors are responsible for the quality of their proposals. Community approval is not professional financial advice. Understand the risks before proposing or approving trades.
+**No compensation.** Contributors who submit trade proposals do not receive any financial compensation, profit-sharing, or payment of any kind. The only reward is bragging rights and community recognition.
+
+**No liability.** The Alpaca account owner(s) are not liable to pay contributors for their proposals, analysis, or any form of consultation. By submitting a PR, you acknowledge that your contribution is voluntary and uncompensated.
+
+**Real capital at risk.** This portfolio trades with real money. Past performance does not guarantee future results. All investments carry risk of loss. Community approval is not professional financial advice. Understand the risks before proposing or approving trades.
 
 ---
 
