@@ -12,9 +12,12 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
+    environment: sandbox
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          ref: sandbox
 
       - name: Set up Python
         uses: actions/setup-python@v5
