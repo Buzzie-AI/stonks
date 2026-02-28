@@ -1,6 +1,6 @@
-# stonks — Open Source Investment Portfolio
+# stonks — Open Source Investment Portfolio (Sandbox)
 
-A community-managed stock portfolio where **anyone can propose trades via Pull Requests**. An AI evaluates every pitch, the community votes, and approved trades execute automatically with real money through Alpaca.
+A community-managed stock portfolio where **anyone can propose trades via Pull Requests**. An AI evaluates every pitch, the community votes, and approved trades execute automatically through Alpaca's **paper trading** API — no real money at risk.
 
 ## How It Works
 
@@ -35,7 +35,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for full details on writing a strong prop
 
 ## Safety Guardrails
 
-This is live trading. The following guardrails are enforced automatically:
+This branch uses **paper trading** (simulated). The following guardrails are still enforced:
 
 - **$500 max** per trade
 - **3 trades/day** maximum
@@ -64,15 +64,15 @@ Set these in your repo's **Settings → Secrets and variables → Actions**:
 
 | Secret | Description |
 |--------|-------------|
-| `ALPACA_API_KEY` | Alpaca live trading API key |
-| `ALPACA_SECRET_KEY` | Alpaca live trading secret |
+| `ALPACA_API_KEY` | Alpaca **paper trading** API key |
+| `ALPACA_SECRET_KEY` | Alpaca **paper trading** secret |
 | `ANTHROPIC_API_KEY` | Claude API key for pitch evaluation |
 
 `GITHUB_TOKEN` is provided automatically by GitHub Actions.
 
 ## Risk Disclaimer
 
-**This portfolio trades with real capital.** Past performance does not guarantee future results. All investments carry risk of loss. Contributors are responsible for the quality of their proposals. Community approval is not professional financial advice. Understand the risks before proposing or approving trades.
+**This is a sandbox branch using paper trading (simulated money).** No real capital is at risk. Use this branch to test strategies before deploying to the `main` branch which trades with real money.
 
 ---
 

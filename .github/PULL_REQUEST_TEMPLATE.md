@@ -44,6 +44,6 @@ suggested_amount:   # Optional: dollar amount (max $500), leave blank for defaul
 ### Checklist
 
 - [ ] I have reviewed the [banned tickers list](config/banned_tickers.txt)
-- [ ] I understand this is **live trading with real capital**
+- [ ] I understand this is **paper trading (sandbox)** — no real money, but good practice
 - [ ] My pitch is at least 200 characters with substantive analysis
 - [ ] I have acknowledged risk factors

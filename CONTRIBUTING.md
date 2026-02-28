@@ -2,7 +2,7 @@
 
 ## Before You Submit
 
-1. **This is live trading.** Real money is at stake. Treat proposals seriously.
+1. **This is paper trading (sandbox).** No real money at risk, but treat proposals seriously — this is practice for the live branch.
 2. **Review recent trades** in `data/trade_history.json` to understand what's been executed.
 3. **Check the portfolio** in `data/portfolio.json` for current holdings.
 4. **Read the evaluation criteria** below — your pitch will be scored by AI on 5 dimensions.

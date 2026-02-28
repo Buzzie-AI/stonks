@@ -3,13 +3,14 @@
 # ============================================
 
 alpaca:
-  base_url: "https://api.alpaca.markets"
+  base_url: "https://paper-api.alpaca.markets"
+  paper: true
   api_version: "v2"
 
 anthropic:
   model: "claude-sonnet-4-5-20250929"
 
-# Safety guardrails (CRITICAL — this is live trading)
+# Safety guardrails (paper trading — no real money at risk)
 safety:
   max_position_size: 500        # Max dollars per single trade
   max_trades_per_day: 3         # Max trades executed in one calendar day
