@@ -172,7 +172,7 @@ def main():
             from alpaca.data.historical import CryptoHistoricalDataClient
             from alpaca.data.requests import CryptoLatestBarRequest
 
-            crypto_data_client = CryptoHistoricalDataClient()
+            crypto_data_client = CryptoHistoricalDataClient(api_key, secret_key)
             bars = crypto_data_client.get_crypto_latest_bar(
                 CryptoLatestBarRequest(symbol_or_symbols=order_symbol)
             )
@@ -186,8 +186,8 @@ def main():
                     "Dust tokens are not allowed.",
                     output,
                 )
-        except Exception:
-            pass  # If we can't check price, proceed cautiously
+        except Exception as e:
+            print(f"WARNING: Crypto price check failed: {e}")
     else:
         if safety.get("ban_penny_stocks", True):
             try:
@@ -221,12 +221,13 @@ def main():
                 from alpaca.data.historical import CryptoHistoricalDataClient
                 from alpaca.data.requests import CryptoLatestBarRequest
 
-                crypto_data_client = CryptoHistoricalDataClient()
+                crypto_data_client = CryptoHistoricalDataClient(api_key, secret_key)
                 bars = crypto_data_client.get_crypto_latest_bar(
                     CryptoLatestBarRequest(symbol_or_symbols=order_symbol)
                 )
                 latest_price = float(bars[order_symbol].close)
-            except Exception:
+            except Exception as e:
+                print(f"WARNING: Crypto price fetch failed: {e}")
                 latest_price = None
         else:
             try:
