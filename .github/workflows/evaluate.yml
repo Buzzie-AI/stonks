@@ -11,6 +11,7 @@ permissions:
 jobs:
   evaluate:
     runs-on: ubuntu-latest
+    environment: ${{ github.base_ref == 'main' && 'production' || 'sandbox' }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
