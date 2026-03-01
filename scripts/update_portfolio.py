@@ -153,6 +153,7 @@ def log_trade_result(execution_path: str, history_path: str):
     trade_entry = {
         "id": f"trade_{len(history['trades']) + 1:04d}",
         "pr_number": execution.get("pr_number"),
+        "github_username": execution.get("github_username", ""),
         "ticker": execution["ticker"],
         "action": execution["action"],
         "quantity": execution["quantity"],

@@ -65,12 +65,20 @@ jobs:
           ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
           ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
 
+      - name: Update leaderboard
+        if: success()
+        run: |
+          python scripts/update_leaderboard.py --config config/config.yml
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+
       - name: Commit updated data files
         if: success()
         run: |
           git config user.name "stonks-bot"
           git config user.email "bot@stonks-portfolio.local"
-          git add data/portfolio.json data/trade_history.json README.md
+          git add data/portfolio.json data/trade_history.json data/contributors.json README.md
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
@@ -90,6 +98,13 @@ jobs:
               const result = JSON.parse(fs.readFileSync('/tmp/trade_execution.json', 'utf8'));
 
               if (result.success) {
+                const rankLabels = {
+                  rookie: 'Rookie',
+                  analyst: 'Analyst',
+                  strategist: 'Strategist',
+                  portfolio_manager: 'Portfolio Manager',
+                };
+                const rank = rankLabels[result.contributor_rank] || result.contributor_rank || 'Rookie';
                 comment = `## ✅ Trade Executed
 
             | Field | Value |
@@ -102,6 +117,7 @@ jobs:
             | **Order ID** | \`${result.order_id}\` |
             | **AI Score** | ${result.ai_score}/100 |
             | **Approvals** | ${result.approval_count} |
+            | **Contributor** | @${result.github_username || 'unknown'} (${rank}) |
 
             _Executed at ${result.executed_at}_`;
               } else {

@@ -32,11 +32,18 @@ jobs:
           ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
           ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
 
+      - name: Update leaderboard
+        run: |
+          python scripts/update_leaderboard.py --config config/config.yml
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+
       - name: Commit portfolio update
         run: |
           git config user.name "stonks-bot"
           git config user.email "bot@stonks-portfolio.local"
-          git add data/portfolio.json README.md
+          git add data/portfolio.json data/contributors.json README.md
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else

@@ -16,8 +16,8 @@ import sys
 import requests
 
 
-def fetch_pr_body(repo: str, pr_number: int) -> str:
-    """Fetch PR body from GitHub API."""
+def fetch_pr_body(repo: str, pr_number: int) -> tuple[str, str]:
+    """Fetch PR body and author username from GitHub API."""
     token = os.environ.get("GITHUB_TOKEN", "")
     headers = {
         "Accept": "application/vnd.github+json",
@@ -26,7 +26,10 @@ def fetch_pr_body(repo: str, pr_number: int) -> str:
     url = f"https://api.github.com/repos/{repo}/pulls/{pr_number}"
     resp = requests.get(url, headers=headers, timeout=30)
     resp.raise_for_status()
-    return resp.json().get("body", "")
+    data = resp.json()
+    body = data.get("body", "")
+    username = data.get("user", {}).get("login", "")
+    return body, username
 
 
 def fetch_pr_reviews(repo: str, pr_number: int) -> int:
@@ -106,9 +109,9 @@ def validate_proposal(yaml_data: dict, pitch_text: str) -> list[str]:
     if yaml_data.get("suggested_amount"):
         try:
             amount = float(yaml_data["suggested_amount"])
-            if amount > 500:
+            if amount > 1000:
                 errors.append(
-                    f"Suggested amount ${amount} exceeds max of $500 per trade."
+                    f"Suggested amount ${amount} exceeds max of $1000 per trade."
                 )
             if amount <= 0:
                 errors.append("Suggested amount must be positive.")
@@ -125,8 +128,8 @@ def main():
     parser.add_argument("--output", default="/tmp/trade_proposal.json")
     args = parser.parse_args()
 
-    # Fetch PR body
-    body = fetch_pr_body(args.repo, args.pr_number)
+    # Fetch PR body and author
+    body, github_username = fetch_pr_body(args.repo, args.pr_number)
     if not body:
         print("ERROR: PR body is empty")
         sys.exit(1)
@@ -142,6 +145,7 @@ def main():
     proposal = {
         "pr_number": args.pr_number,
         "repo": args.repo,
+        "github_username": github_username,
         "ticker": yaml_data.get("ticker", "").upper(),
         "action": yaml_data.get("action", "").upper(),
         "asset_class": yaml_data.get("asset_class", "STOCK").upper(),
@@ -163,7 +167,7 @@ def main():
     else:
         print(
             f"Parsed proposal: {proposal['action']} {proposal['ticker']} "
-            f"[{proposal['asset_class']}] (approvals: {approval_count})"
+            f"[{proposal['asset_class']}] by @{github_username} (approvals: {approval_count})"
         )
 
 

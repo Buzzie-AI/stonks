@@ -43,7 +43,7 @@
 - Submit penny stocks (under $5) or banned tickers
 - Submit dust tokens (crypto under $0.001)
 - Write fewer than 200 characters
-- Propose more than $500 per trade
+- Propose more than $1,000 per trade (actual cap depends on your rank)
 
 ## Example: Strong Proposal
 
@@ -115,6 +115,25 @@ Bitcoin's fourth halving cycle (April 2024) has historically preceded 12-18 mont
 - The trade is logged in `data/trade_history.json`
 - Portfolio updates daily at market close
 - Your contribution is public and attributed to your GitHub username
+- Your rank and stats update on the leaderboard
+
+## Contributor Ranks
+
+Every contributor starts as a **Rookie** and can rank up based on their track record. Higher ranks unlock perks like larger trade sizes and fewer approval requirements.
+
+| Rank | Requirements | Perks |
+|------|-------------|-------|
+| **Rookie** | First trade | $500 max trade, 2 approvals required |
+| **Analyst** | 3+ trades, >50% win rate | $500 max trade, 1 approval required |
+| **Strategist** | 5+ trades, >60% win rate | $750 max trade, 2 approvals required |
+| **Portfolio Manager** | 10+ trades, >65% win rate, positive P&L | $1,000 max trade, 1 approval required |
+
+**How ranks work:**
+- Ranks refresh after every trade execution and during the daily portfolio update
+- Win rate is calculated from BUY trades only (profit = current price vs. entry price)
+- SELL trades count toward your trade total but not your win rate
+- All rank thresholds are configured in `config/config.yml`
+- Your current rank and stats are visible on the [Leaderboard](README.md#contributor-leaderboard)
 
 ## Questions?
 
