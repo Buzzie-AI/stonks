@@ -17,13 +17,32 @@ You open a PR → Claude scores your pitch → Community reviews → PR merged �
 ## Live Portfolio
 
 <!-- PORTFOLIO_START -->
-No open positions yet. Submit a PR to make the first trade!
+| Symbol | Qty | Avg Cost | Current | Market Value | P&L | Return |
+|--------|-----|----------|---------|-------------|-----|--------|
+| PONY | 420.0 | $18.05 | $14.34 | $6,022.80 | $-1,558.48 | -20.6% |
+| NVDA | 30.0 | $182.20 | $177.19 | $5,315.70 | $-150.40 | -2.8% |
+| FIG | 100.0 | $48.18 | $29.39 | $2,939.00 | $-1,879.00 | -39.0% |
+| NVTS | 300.0 | $14.97 | $9.00 | $2,700.00 | $-1,789.83 | -39.9% |
+| BBAI | 500.0 | $5.92 | $3.96 | $1,980.00 | $-977.58 | -33.0% |
+| HOOD | 25.0 | $126.69 | $75.85 | $1,896.25 | $-1,270.93 | -40.1% |
+| QUBT | 50.0 | $22.67 | $8.41 | $420.50 | $-712.83 | -62.9% |
+| RGTI | 20.0 | $51.88 | $17.42 | $348.40 | $-689.20 | -66.4% |
+| INTS | 40.0 | $19.24 | $7.66 | $306.40 | $-463.30 | -60.2% |
+| 737CVR019 | 4.064262182 | $0.00 | $0.00 | $0.00 | +$0.00 | +0.0% |
+
+**Portfolio Value:** $24,578.20  
+**Cash:** $2,649.15  
+**Total P&L:** $-9,491.55 (-30.2%)  
+**Positions:** 10  
+*Last updated: 2026-03-01T20:25:38.208545+00:00*
+
 <!-- PORTFOLIO_END -->
 
 ## Contributor Leaderboard
 
 <!-- LEADERBOARD_START -->
 No contributors yet. Submit a PR to get on the leaderboard!
+
 <!-- LEADERBOARD_END -->
 
 ## Quick Start
