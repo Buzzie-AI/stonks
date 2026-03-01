@@ -188,7 +188,8 @@ def main():
 
     api_key = os.environ["ALPACA_API_KEY"]
     secret_key = os.environ["ALPACA_SECRET_KEY"]
-    client = TradingClient(api_key, secret_key, paper=False)
+    is_paper = config.get("alpaca", {}).get("paper", False)
+    client = TradingClient(api_key, secret_key, paper=is_paper)
 
     # Log trade if provided
     if args.log_trade:

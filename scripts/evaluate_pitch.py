@@ -30,8 +30,9 @@ def load_proposal(path: str) -> dict:
 
 SYSTEM_PROMPT = """\
 You are a senior investment analyst evaluating trade proposals for a community-managed \
-stock portfolio. You are rigorous, data-driven, and skeptical of hype. Your job is to \
-score each proposal fairly and identify risks the author may have missed.
+investment portfolio (stocks and cryptocurrency). You are rigorous, data-driven, and \
+skeptical of hype. Your job is to score each proposal fairly and identify risks the \
+author may have missed.
 
 You MUST respond with valid JSON only — no markdown, no commentary outside the JSON."""
 
@@ -42,6 +43,7 @@ PROPOSAL
 --------
 Ticker: {ticker}
 Action: {action}
+Asset Class: {asset_class}
 Suggested Amount: {amount}
 
 PITCH
@@ -51,7 +53,8 @@ PITCH
 SCORING RUBRIC (100 points total)
 ----------------------------------
 1. pitch_quality (0-20): Is the pitch clear, well-structured, and logically coherent?
-2. fundamental_analysis (0-25): Does it cite earnings, revenue, competitive position, or catalysts?
+2. fundamental_analysis (0-25): Does it cite earnings, revenue, competitive position, or catalysts? \
+For crypto, consider on-chain metrics, adoption data, protocol fundamentals, and tokenomics.
 3. risk_assessment (0-20): Does it honestly acknowledge what could go wrong?
 4. market_outlook (0-20): Are the price target and time horizon realistic?
 5. strategy_alignment (0-15): Does this trade make sense for a diversified portfolio?
@@ -59,10 +62,9 @@ SCORING RUBRIC (100 points total)
 RED FLAGS to check for:
 - Speculative language without data ("moonshot", "guaranteed", "can't lose")
 - No risk acknowledgment at all
-- Penny stock or highly volatile ticker
 - Unrealistic return expectations (>100% in short term)
 - Purely emotional reasoning
-
+{red_flag_extras}
 Return this exact JSON structure:
 {{
     "score": <int 0-100, sum of all dimensions>,
@@ -79,6 +81,16 @@ Return this exact JSON structure:
     "detailed_analysis": "<2-3 paragraph assessment explaining the score>"
 }}"""
 
+STOCK_RED_FLAGS = """\
+- Penny stock or highly volatile ticker (under $5)
+"""
+
+CRYPTO_RED_FLAGS = """\
+- Extremely low-liquidity or micro-cap token
+- No clear utility or adoption beyond speculation
+- Excessive volatility without acknowledgment
+"""
+
 
 def evaluate(proposal: dict, config: dict) -> dict:
     """Call Claude API to evaluate the pitch."""
@@ -86,12 +98,16 @@ def evaluate(proposal: dict, config: dict) -> dict:
 
     model = config.get("anthropic", {}).get("model", "claude-sonnet-4-5-20250929")
     amount = proposal.get("suggested_amount") or "Not specified (default $500 max)"
+    asset_class = proposal.get("asset_class", "STOCK")
+    red_flag_extras = CRYPTO_RED_FLAGS if asset_class == "CRYPTO" else STOCK_RED_FLAGS
 
     prompt = EVAL_PROMPT_TEMPLATE.format(
         ticker=proposal["ticker"],
         action=proposal["action"],
+        asset_class=asset_class,
         amount=amount,
         pitch_text=proposal["pitch_text"],
+        red_flag_extras=red_flag_extras,
     )
 
     message = client.messages.create(

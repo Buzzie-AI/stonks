@@ -1,6 +1,6 @@
 # stonks — Open Source Investment Portfolio
 
-A community-managed stock portfolio where **anyone can propose trades via Pull Requests**. An AI evaluates every pitch, the community votes, and approved trades execute automatically with real money through Alpaca.
+A community-managed investment portfolio where **anyone can propose trades via Pull Requests**. Supports both **stocks and cryptocurrency**. An AI evaluates every pitch, the community votes, and approved trades execute automatically with real money through Alpaca.
 
 ## How It Works
 
@@ -8,11 +8,11 @@ A community-managed stock portfolio where **anyone can propose trades via Pull R
 You open a PR → Claude scores your pitch → Community reviews → PR merged → Trade executes → Portfolio updates
 ```
 
-1. **Submit a trade proposal** — Fork the repo, open a PR with the template (ticker, action, and your investment thesis).
+1. **Submit a trade proposal** — Fork the repo, open a PR with the template (ticker, action, asset class, and your investment thesis).
 2. **AI evaluation** — A GitHub Action calls the Claude API to score your pitch on 5 dimensions (0–100).
 3. **Community review** — Maintainers and contributors discuss, ask questions, and approve.
 4. **Trade execution** — Once merged with score >= 65 and 2+ approvals, the trade executes via Alpaca's live API.
-5. **Portfolio tracking** — Holdings and performance update daily at market close.
+5. **Portfolio tracking** — Holdings and performance update daily (stocks and crypto).
 
 ## Live Portfolio
 
@@ -26,7 +26,8 @@ No open positions yet. Submit a PR to make the first trade!
 # Fork and clone
 git clone https://github.com/YOUR_USERNAME/stonks.git
 cd stonks
-git checkout -b trade/AAPL-BUY
+git checkout -b trade/AAPL-BUY      # stocks
+git checkout -b trade/BTC-USD-BUY   # crypto
 
 # Open a PR using the template — fill in the YAML block and write your pitch
 ```
@@ -37,13 +38,14 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for full details on writing a strong prop
 
 This is live trading. The following guardrails are enforced automatically:
 
-- **$500 max** per trade
+- **$500 max** per trade (stocks and crypto)
 - **3 trades/day** maximum
 - **AI score >= 65** required
 - **2+ PR approvals** required
-- **Penny stocks banned** (under $5)
+- **Penny stocks banned** (stocks under $5)
+- **Dust tokens banned** (crypto under $0.001)
 - **Banned tickers list** maintained in `config/banned_tickers.txt`
-- Every order is validated for buying power, ticker existence, and market hours before execution
+- Every order is validated for buying power and ticker existence before execution
 
 All parameters are configurable in `config/config.yml`.
 

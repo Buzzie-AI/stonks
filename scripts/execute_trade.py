@@ -93,7 +93,20 @@ def main():
 
     ticker = proposal.get("ticker", "").upper()
     action = proposal.get("action", "").upper()
+    asset_class = proposal.get("asset_class", "STOCK").upper()
     output = args.output
+
+    is_crypto = asset_class == "CRYPTO"
+
+    # Normalize crypto symbol formats:
+    #   order_symbol  = "BTC/USD" (slash format for orders and data)
+    #   position_symbol = "BTCUSD" (no slash for positions)
+    if is_crypto:
+        order_symbol = ticker if "/" in ticker else ticker.replace("USD", "/USD")
+        position_symbol = ticker.replace("/", "")
+    else:
+        order_symbol = ticker
+        position_symbol = ticker
 
     # ── Safety checks ──────────────────────────────────────────────
 
@@ -119,7 +132,7 @@ def main():
 
     # 4. Banned tickers
     banned = load_banned_tickers(config)
-    if ticker in banned:
+    if ticker in banned or position_symbol in banned:
         fail(ticker, action, f"Ticker {ticker} is on the banned list", output)
 
     # 5. Daily trade limit
@@ -135,49 +148,99 @@ def main():
 
     api_key = os.environ["ALPACA_API_KEY"]
     secret_key = os.environ["ALPACA_SECRET_KEY"]
-    client = TradingClient(api_key, secret_key, paper=False)
+    is_paper = config.get("alpaca", {}).get("paper", False)
+    client = TradingClient(api_key, secret_key, paper=is_paper)
 
     # 6. Check ticker is tradable
     try:
-        asset = client.get_asset(ticker)
+        asset = client.get_asset(position_symbol)
         if not asset.tradable:
             fail(ticker, action, f"{ticker} exists but is not tradable", output)
+        # Auto-detect asset class if not explicitly set
+        if asset_class == "STOCK" and str(asset.asset_class).lower() == "crypto":
+            is_crypto = True
+            asset_class = "CRYPTO"
+            order_symbol = ticker if "/" in ticker else ticker.replace("USD", "/USD")
+            position_symbol = ticker.replace("/", "")
     except Exception as e:
         fail(ticker, action, f"Ticker lookup failed: {e}", output)
 
-    # 7. Penny stock check
-    if safety.get("ban_penny_stocks", True):
+    # 7. Price check (penny stock for stocks, minimum price for crypto)
+    latest_price = None
+    if is_crypto:
         try:
-            from alpaca.data.historical import StockHistoricalDataClient
-            from alpaca.data.requests import StockLatestBarRequest
+            from alpaca.data.historical import CryptoHistoricalDataClient
+            from alpaca.data.requests import CryptoLatestBarRequest
 
-            data_client = StockHistoricalDataClient(api_key, secret_key)
-            bars = data_client.get_stock_latest_bar(StockLatestBarRequest(symbol_or_symbols=ticker))
-            latest_price = float(bars[ticker].close)
-            if latest_price < 5.0:
+            crypto_data_client = CryptoHistoricalDataClient(api_key, secret_key)
+            bars = crypto_data_client.get_crypto_latest_bar(
+                CryptoLatestBarRequest(symbol_or_symbols=order_symbol)
+            )
+            latest_price = float(bars[order_symbol].close)
+            crypto_min = safety.get("crypto_min_price", 0.001)
+            if latest_price < crypto_min:
                 fail(
                     ticker,
                     action,
-                    f"{ticker} is a penny stock (${latest_price:.2f}). Banned by policy.",
+                    f"{ticker} price ${latest_price} is below crypto minimum ${crypto_min}. "
+                    "Dust tokens are not allowed.",
                     output,
                 )
-        except Exception:
-            pass  # If we can't check price, proceed cautiously
+        except Exception as e:
+            print(f"WARNING: Crypto price check failed: {e}")
+    else:
+        if safety.get("ban_penny_stocks", True):
+            try:
+                from alpaca.data.historical import StockHistoricalDataClient
+                from alpaca.data.requests import StockLatestBarRequest
+
+                data_client = StockHistoricalDataClient(api_key, secret_key)
+                bars = data_client.get_stock_latest_bar(
+                    StockLatestBarRequest(symbol_or_symbols=ticker)
+                )
+                latest_price = float(bars[ticker].close)
+                if latest_price < 5.0:
+                    fail(
+                        ticker,
+                        action,
+                        f"{ticker} is a penny stock (${latest_price:.2f}). Banned by policy.",
+                        output,
+                    )
+            except Exception:
+                pass  # If we can't check price, proceed cautiously
 
     # 8. Determine order quantity
     max_position = safety.get("max_position_size", 500)
     suggested = proposal.get("suggested_amount")
     trade_amount = min(float(suggested), max_position) if suggested else max_position
 
-    try:
-        from alpaca.data.historical import StockHistoricalDataClient
-        from alpaca.data.requests import StockLatestBarRequest
+    # Fetch latest price if not already retrieved
+    if latest_price is None:
+        if is_crypto:
+            try:
+                from alpaca.data.historical import CryptoHistoricalDataClient
+                from alpaca.data.requests import CryptoLatestBarRequest
 
-        data_client = StockHistoricalDataClient(api_key, secret_key)
-        bars = data_client.get_stock_latest_bar(StockLatestBarRequest(symbol_or_symbols=ticker))
-        latest_price = float(bars[ticker].close)
-    except Exception:
-        latest_price = None
+                crypto_data_client = CryptoHistoricalDataClient(api_key, secret_key)
+                bars = crypto_data_client.get_crypto_latest_bar(
+                    CryptoLatestBarRequest(symbol_or_symbols=order_symbol)
+                )
+                latest_price = float(bars[order_symbol].close)
+            except Exception as e:
+                print(f"WARNING: Crypto price fetch failed: {e}")
+                latest_price = None
+        else:
+            try:
+                from alpaca.data.historical import StockHistoricalDataClient
+                from alpaca.data.requests import StockLatestBarRequest
+
+                data_client = StockHistoricalDataClient(api_key, secret_key)
+                bars = data_client.get_stock_latest_bar(
+                    StockLatestBarRequest(symbol_or_symbols=ticker)
+                )
+                latest_price = float(bars[ticker].close)
+            except Exception:
+                latest_price = None
 
     if action == "BUY":
         if latest_price is None:
@@ -185,7 +248,7 @@ def main():
 
         quantity = int(trade_amount // latest_price)
         if quantity < 1:
-            # Use fractional shares if price > trade_amount
+            # Use fractional shares/coins if price > trade_amount
             quantity = round(trade_amount / latest_price, 4)
 
         # Check buying power
@@ -201,7 +264,7 @@ def main():
 
     elif action == "SELL":
         try:
-            position = client.get_open_position(ticker)
+            position = client.get_open_position(position_symbol)
             available_qty = float(position.qty)
         except Exception:
             fail(ticker, action, f"No open position in {ticker} to sell", output)
@@ -215,16 +278,17 @@ def main():
     # ── Submit order ───────────────────────────────────────────────
 
     side = OrderSide.BUY if action == "BUY" else OrderSide.SELL
+    tif = TimeInForce.GTC if is_crypto else TimeInForce.DAY
 
     try:
         order_request = MarketOrderRequest(
-            symbol=ticker,
+            symbol=order_symbol,
             qty=quantity if isinstance(quantity, int) and quantity >= 1 else None,
             notional=round(trade_amount, 2)
             if (isinstance(quantity, float) or (isinstance(quantity, int) and quantity < 1))
             else None,
             side=side,
-            time_in_force=TimeInForce.DAY,
+            time_in_force=tif,
         )
         order = client.submit_order(order_request)
 
@@ -232,6 +296,7 @@ def main():
             "success": True,
             "ticker": ticker,
             "action": action,
+            "asset_class": asset_class,
             "quantity": float(quantity),
             "price": latest_price or 0,
             "notional": round(trade_amount, 2),
@@ -247,7 +312,7 @@ def main():
         with open(output, "w") as f:
             json.dump(result, f, indent=2)
 
-        print(f"ORDER SUBMITTED: {action} {quantity} x {ticker} (Order ID: {order.id})")
+        print(f"ORDER SUBMITTED: {action} {quantity} x {ticker} [{asset_class}] (Order ID: {order.id})")
 
     except Exception as e:
         fail(ticker, action, f"Order submission failed: {e}", output)

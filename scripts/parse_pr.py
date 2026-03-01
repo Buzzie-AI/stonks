@@ -94,6 +94,10 @@ def validate_proposal(yaml_data: dict, pitch_text: str) -> list[str]:
     elif yaml_data["action"].upper() not in ("BUY", "SELL"):
         errors.append(f"Invalid action: {yaml_data['action']}. Must be BUY or SELL.")
 
+    asset_class = yaml_data.get("asset_class", "STOCK").upper()
+    if asset_class not in ("STOCK", "CRYPTO"):
+        errors.append(f"Invalid asset_class: {asset_class}. Must be STOCK or CRYPTO.")
+
     if len(pitch_text) < 200:
         errors.append(
             f"Pitch too short ({len(pitch_text)} chars). Minimum 200 characters required."
@@ -140,6 +144,7 @@ def main():
         "repo": args.repo,
         "ticker": yaml_data.get("ticker", "").upper(),
         "action": yaml_data.get("action", "").upper(),
+        "asset_class": yaml_data.get("asset_class", "STOCK").upper(),
         "suggested_amount": yaml_data.get("suggested_amount"),
         "pitch_text": pitch_text,
         "approval_count": approval_count,
@@ -158,7 +163,7 @@ def main():
     else:
         print(
             f"Parsed proposal: {proposal['action']} {proposal['ticker']} "
-            f"(approvals: {approval_count})"
+            f"[{proposal['asset_class']}] (approvals: {approval_count})"
         )
 
 
