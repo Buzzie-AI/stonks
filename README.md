@@ -1,4 +1,4 @@
-# stonks — Open Source Investment Portfolio
+# Stonks — Open Source Investment Portfolio
 
 A community-managed investment portfolio where **anyone can propose trades via Pull Requests**. Supports both **stocks and cryptocurrency**. An AI evaluates every pitch, the community votes, and approved trades execute automatically with real money through Alpaca.
 
@@ -58,6 +58,8 @@ git checkout -b trade/BTC-USD-BUY   # crypto
 ```
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for full details on writing a strong proposal.
+
+**Using an AI assistant?** Point it at [AI_INSTRUCTIONS.md](AI_INSTRUCTIONS.md) — it has everything your AI needs to research tickers, write pitches, and open PRs for you.
 
 ## Safety Guardrails
 

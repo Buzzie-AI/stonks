@@ -135,6 +135,10 @@ Every contributor starts as a **Rookie** and can rank up based on their track re
 - All rank thresholds are configured in `config/config.yml`
 - Your current rank and stats are visible on the [Leaderboard](README.md#contributor-leaderboard)
 
+## AI-Assisted Submissions
+
+Want your AI coding assistant to submit trades for you? See [AI_INSTRUCTIONS.md](AI_INSTRUCTIONS.md) for a complete guide designed to be read by Claude Code, Copilot, Cursor, and other AI tools.
+
 ## Questions?
 
 Open a GitHub Issue or start a Discussion.
