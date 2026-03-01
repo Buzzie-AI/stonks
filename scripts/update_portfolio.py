@@ -30,15 +30,19 @@ def fetch_portfolio(client: TradingClient) -> dict:
 
     pos_list = []
     for p in positions:
+        current_price = float(p.current_price) if p.current_price is not None else float(p.avg_entry_price)
+        market_value = float(p.market_value) if p.market_value is not None else current_price * float(p.qty)
+        unrealized_pl = float(p.unrealized_pl) if p.unrealized_pl is not None else 0.0
+        unrealized_plpc = round(float(p.unrealized_plpc) * 100, 2) if p.unrealized_plpc is not None else 0.0
         pos_list.append(
             {
                 "symbol": p.symbol,
                 "qty": float(p.qty),
                 "avg_entry_price": float(p.avg_entry_price),
-                "current_price": float(p.current_price),
-                "market_value": float(p.market_value),
-                "unrealized_pl": float(p.unrealized_pl),
-                "unrealized_plpc": round(float(p.unrealized_plpc) * 100, 2),
+                "current_price": current_price,
+                "market_value": market_value,
+                "unrealized_pl": unrealized_pl,
+                "unrealized_plpc": unrealized_plpc,
                 "side": str(p.side),
             }
         )
