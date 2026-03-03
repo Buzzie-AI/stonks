@@ -9,12 +9,13 @@
 
 ## How to Submit
 
-1. Fork the repo and create a branch named `trade/TICKER-ACTION` (e.g. `trade/AAPL-BUY` or `trade/BTC-USD-BUY` for crypto).
-2. Open a PR using the provided template. Fill in both the YAML block and the markdown pitch.
-3. Wait for the AI evaluation comment (posted automatically within minutes).
-4. Address any feedback from reviewers. Iterate on your pitch if needed.
-5. Once you have 2+ approvals and the AI score is >= 65, a maintainer can merge.
-6. On merge, the trade executes automatically and results are posted to your PR.
+1. **Fork the repo** — Click the "Fork" button on GitHub to create your own copy. You do **not** need collaborator access; all contributions come through forks.
+2. **Create a branch** named `trade/TICKER-ACTION` (e.g. `trade/AAPL-BUY` or `trade/BTC-USD-BUY` for crypto).
+3. **Open a PR** from your fork back to `Buzzie-AI/stonks:main` using the provided template. Fill in both the YAML block and the markdown pitch.
+4. **Wait for the AI evaluation** comment (posted automatically within minutes).
+5. **Address feedback** from reviewers. Iterate on your pitch if needed.
+6. Once you have **2+ approvals** and the **AI score >= 65**, a maintainer can merge.
+7. On merge, the trade executes automatically and results are posted to your PR.
 
 ## Evaluation Criteria (100 points)
 

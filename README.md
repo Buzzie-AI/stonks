@@ -47,14 +47,19 @@ No contributors yet. Submit a PR to get on the leaderboard!
 
 ## Quick Start
 
+All contributions come through **forks** — you don't need collaborator access.
+
 ```bash
-# Fork and clone
+# 1. Fork the repo on GitHub, then clone your fork
 git clone https://github.com/YOUR_USERNAME/stonks.git
 cd stonks
+
+# 2. Create a branch for your trade
 git checkout -b trade/AAPL-BUY      # stocks
 git checkout -b trade/BTC-USD-BUY   # crypto
 
-# Open a PR using the template — fill in the YAML block and write your pitch
+# 3. Open a PR from your fork to Buzzie-AI/stonks:main
+#    Fill in the YAML block and write your pitch using the template
 ```
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for full details on writing a strong proposal.
