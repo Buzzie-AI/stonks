@@ -8,7 +8,6 @@
 ticker: ""          # e.g. AAPL, MSFT, GOOGL — for crypto use slash format: BTC/USD, ETH/USD
 action: ""          # BUY or SELL
 asset_class: ""     # STOCK or CRYPTO (defaults to STOCK if blank)
-suggested_amount:   # Optional: dollar amount (max $500), leave blank for default
 ```
 
 ## Investment Thesis

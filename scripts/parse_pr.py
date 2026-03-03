@@ -106,18 +106,6 @@ def validate_proposal(yaml_data: dict, pitch_text: str) -> list[str]:
             f"Pitch too short ({len(pitch_text)} chars). Minimum 200 characters required."
         )
 
-    if yaml_data.get("suggested_amount"):
-        try:
-            amount = float(yaml_data["suggested_amount"])
-            if amount > 1000:
-                errors.append(
-                    f"Suggested amount ${amount} exceeds max of $1000 per trade."
-                )
-            if amount <= 0:
-                errors.append("Suggested amount must be positive.")
-        except ValueError:
-            errors.append(f"Invalid suggested_amount: {yaml_data['suggested_amount']}")
-
     return errors
 
 
@@ -149,7 +137,6 @@ def main():
         "ticker": yaml_data.get("ticker", "").upper(),
         "action": yaml_data.get("action", "").upper(),
         "asset_class": yaml_data.get("asset_class", "STOCK").upper(),
-        "suggested_amount": yaml_data.get("suggested_amount"),
         "pitch_text": pitch_text,
         "approval_count": approval_count,
         "validation_errors": errors,

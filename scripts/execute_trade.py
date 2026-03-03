@@ -46,57 +46,6 @@ def load_banned_tickers(config: dict) -> set:
     return banned
 
 
-def get_contributor_perks(username: str, config: dict) -> dict:
-    """Look up a contributor's rank and return adjusted perks.
-
-    Reads data/contributors.json to find the contributor's rank,
-    then returns the matching rank config. Falls back to 'rookie'.
-    """
-    ranks = config.get("ranks", {})
-    safety = config.get("safety", {})
-
-    # Default to rookie perks (or global safety fallback)
-    default_perks = {
-        "rank": "rookie",
-        "max_position_size": ranks.get("rookie", {}).get(
-            "max_position_size", safety.get("max_position_size", 500)
-        ),
-        "min_approvals": ranks.get("rookie", {}).get(
-            "min_approvals", safety.get("min_approvals", 2)
-        ),
-    }
-
-    if not username:
-        return default_perks
-
-    contributors_path = config.get("logging", {}).get(
-        "contributors_file", "data/contributors.json"
-    )
-    if not Path(contributors_path).exists():
-        return default_perks
-
-    try:
-        with open(contributors_path) as f:
-            contributors = json.load(f)
-        contributor = contributors.get("contributors", {}).get(username)
-        if not contributor:
-            return default_perks
-
-        rank = contributor.get("rank", "rookie")
-        rank_config = ranks.get(rank, ranks.get("rookie", {}))
-        return {
-            "rank": rank,
-            "max_position_size": rank_config.get(
-                "max_position_size", safety.get("max_position_size", 500)
-            ),
-            "min_approvals": rank_config.get(
-                "min_approvals", safety.get("min_approvals", 2)
-            ),
-        }
-    except (json.JSONDecodeError, OSError):
-        return default_perks
-
-
 def count_trades_today(history_path: str) -> int:
     """Count how many trades have been executed today."""
     if not Path(history_path).exists():
@@ -134,6 +83,7 @@ def main():
     parser.add_argument("--proposal", required=True)
     parser.add_argument("--evaluation", required=True)
     parser.add_argument("--config", required=True)
+    parser.add_argument("--amount", required=True, type=float, help="Dollar amount for the trade (set by maintainer via /execute comment)")
     parser.add_argument("--output", default="/tmp/trade_execution.json")
     args = parser.parse_args()
 
@@ -149,11 +99,9 @@ def main():
     output = args.output
 
     is_crypto = asset_class == "CRYPTO"
+    trade_amount = args.amount
 
-    # Look up contributor rank perks
-    perks = get_contributor_perks(github_username, config)
-    print(f"Contributor @{github_username} — rank: {perks['rank']}, "
-          f"max_position: ${perks['max_position_size']}, min_approvals: {perks['min_approvals']}")
+    print(f"Contributor @{github_username} — trade amount: ${trade_amount:.2f}")
 
     # Normalize crypto symbol formats:
     #   order_symbol  = "BTC/USD" (slash format for orders and data)
@@ -172,8 +120,8 @@ def main():
     if evaluation.get("score", 0) < min_score:
         fail(ticker, action, f"AI score {evaluation['score']} below minimum {min_score}", output)
 
-    # 2. Minimum approvals (adjusted by contributor rank)
-    min_approvals = perks["min_approvals"]
+    # 2. Minimum approvals
+    min_approvals = safety.get("min_approvals", 2)
     if proposal.get("approval_count", 0) < min_approvals:
         fail(
             ticker,
@@ -266,11 +214,7 @@ def main():
             except Exception:
                 pass  # If we can't check price, proceed cautiously
 
-    # 8. Determine order quantity (position size adjusted by contributor rank)
-    max_position = perks["max_position_size"]
-    suggested = proposal.get("suggested_amount")
-    trade_amount = min(float(suggested), max_position) if suggested else max_position
-
+    # 8. Determine order quantity
     # Fetch latest price if not already retrieved
     if latest_price is None:
         if is_crypto:
@@ -362,7 +306,6 @@ def main():
             "executed_at": datetime.now(timezone.utc).isoformat(),
             "pr_number": proposal.get("pr_number"),
             "github_username": github_username,
-            "contributor_rank": perks["rank"],
             "ai_score": evaluation.get("score"),
             "approval_count": proposal.get("approval_count"),
             "error": None,

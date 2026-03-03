@@ -70,26 +70,14 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for full details on writing a strong prop
 
 This is live trading. The following guardrails are enforced automatically:
 
-- **Position size and approvals** vary by contributor rank (see table below)
+- **Trade size** set by maintainer via `/execute <amount>` comment before merge
+- **2+ approvals** required
 - **3 trades/day** maximum
 - **AI score >= 65** required
 - **Penny stocks banned** (stocks under $5)
 - **Dust tokens banned** (crypto under $0.001)
 - **Banned tickers list** maintained in `config/banned_tickers.txt`
 - Every order is validated for buying power and ticker existence before execution
-
-### Contributor Ranks
-
-Build a track record to unlock higher trade limits and fewer approval requirements:
-
-| Rank | Requirements | Max Trade | Approvals Needed |
-|------|-------------|-----------|-----------------|
-| Rookie | First trade | $500 | 2 |
-| Analyst | 3+ trades, >50% win rate | $500 | 1 |
-| Strategist | 5+ trades, >60% win rate | $750 | 2 |
-| Portfolio Manager | 10+ trades, >65% win rate, positive P&L | $1,000 | 1 |
-
-Ranks refresh after every trade and during the daily portfolio update.
 
 All parameters are configurable in `config/config.yml`.
 
@@ -100,7 +88,7 @@ All parameters are configurable in `config/config.yml`.
 ├── scripts/               # Python: parse, evaluate, trade, update, leaderboard
 ├── config/                # config.yml + banned tickers
 ├── data/                  # portfolio.json, trade_history.json, contributors.json
-├── CONTRIBUTING.md        # How to submit a trade + rank system
+├── CONTRIBUTING.md        # How to submit a trade
 └── README.md              # You are here
 ```
 

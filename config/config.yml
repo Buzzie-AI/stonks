@@ -11,7 +11,6 @@ anthropic:
 
 # Safety guardrails (CRITICAL — this is live trading)
 safety:
-  max_position_size: 500        # Max dollars per single trade
   max_trades_per_day: 3         # Max trades executed in one calendar day
   min_ai_score: 65              # Minimum Claude evaluation score (0-100)
   min_approvals: 2              # Minimum PR approvals before merge triggers trade
@@ -39,30 +38,6 @@ evaluation:
 portfolio:
   max_single_position_pct: 20   # Max % of portfolio in one stock
   starting_cash: 10000          # Initial funding amount (for reference)
-
-# Contributor ranks — perks unlock as you build a track record
-ranks:
-  rookie:
-    min_trades: 0
-    min_win_rate: 0
-    max_position_size: 500
-    min_approvals: 2
-  analyst:
-    min_trades: 3
-    min_win_rate: 0.50
-    max_position_size: 500
-    min_approvals: 1
-  strategist:
-    min_trades: 5
-    min_win_rate: 0.60
-    max_position_size: 750
-    min_approvals: 2
-  portfolio_manager:
-    min_trades: 10
-    min_win_rate: 0.65
-    requires_positive_pnl: true
-    max_position_size: 1000
-    min_approvals: 1
 
 # Logging
 logging:

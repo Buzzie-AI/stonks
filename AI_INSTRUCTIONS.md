@@ -19,7 +19,7 @@ Before writing a proposal, read these files to understand the current state:
 - **`data/portfolio.json`** — Current holdings, cash, buying power. Check what positions already exist to avoid over-concentration and to argue for strategy alignment.
 - **`data/trade_history.json`** — Past trades. See what's been bought/sold recently.
 - **`config/banned_tickers.txt`** — Never propose a ticker on this list.
-- **`config/config.yml`** — Safety limits, evaluation rubric weights, rank thresholds.
+- **`config/config.yml`** — Safety limits, evaluation rubric weights.
 
 ### 2. Create a Branch
 
@@ -38,7 +38,6 @@ The PR body must contain a YAML code block and markdown sections. Use this struc
 ticker: "AAPL"           # Stock symbol, or slash format for crypto: BTC/USD, ETH/USD
 action: "BUY"            # BUY or SELL
 asset_class: "STOCK"     # STOCK or CRYPTO
-suggested_amount: 400    # Dollar amount (optional, max $1000 — actual cap depends on contributor rank)
 ```
 
 ## Investment Thesis
@@ -68,7 +67,6 @@ suggested_amount: 400    # Dollar amount (optional, max $1000 — actual cap dep
 | Rule | Detail |
 |------|--------|
 | **Minimum pitch length** | 200 characters (the markdown sections, not counting YAML) |
-| **Max suggested amount** | $1,000 (actual cap is $500 for Rookies, up to $1,000 for Portfolio Managers) |
 | **Allowed actions** | `BUY` or `SELL` only |
 | **Allowed asset classes** | `STOCK` or `CRYPTO` only |
 | **Penny stocks banned** | No stocks trading under $5 |

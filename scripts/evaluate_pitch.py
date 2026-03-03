@@ -44,7 +44,6 @@ PROPOSAL
 Ticker: {ticker}
 Action: {action}
 Asset Class: {asset_class}
-Suggested Amount: {amount}
 
 PITCH
 -----
@@ -97,7 +96,6 @@ def evaluate(proposal: dict, config: dict) -> dict:
     client = anthropic.Anthropic()
 
     model = config.get("anthropic", {}).get("model", "claude-sonnet-4-5-20250929")
-    amount = proposal.get("suggested_amount") or "Not specified (default $500 max)"
     asset_class = proposal.get("asset_class", "STOCK")
     red_flag_extras = CRYPTO_RED_FLAGS if asset_class == "CRYPTO" else STOCK_RED_FLAGS
 
@@ -105,7 +103,6 @@ def evaluate(proposal: dict, config: dict) -> dict:
         ticker=proposal["ticker"],
         action=proposal["action"],
         asset_class=asset_class,
-        amount=amount,
         pitch_text=proposal["pitch_text"],
         red_flag_extras=red_flag_extras,
     )

@@ -7,6 +7,7 @@ on:
 permissions:
   pull-requests: write
   contents: write
+  issues: read
 
 jobs:
   execute:
@@ -24,6 +25,36 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+
+      - name: Parse execute command
+        id: parse_execute
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const pattern = /^\/execute\s+(\d+(?:\.\d+)?)$/;
+            let amount = null;
+
+            for (const comment of comments.reverse()) {
+              const match = comment.body.trim().match(pattern);
+              if (match) {
+                amount = match[1];
+                break;
+              }
+            }
+
+            if (!amount) {
+              core.setFailed('No /execute <amount> comment found on this PR. A maintainer must post "/execute 250" (or similar) before merging.');
+              return;
+            }
+
+            core.setOutput('amount', amount);
+            console.log(`Found /execute command: $${amount}`);
 
       - name: Parse PR content
         run: |
@@ -50,6 +81,7 @@ jobs:
             --proposal /tmp/trade_proposal.json \
             --evaluation /tmp/evaluation_result.json \
             --config config/config.yml \
+            --amount ${{ steps.parse_execute.outputs.amount }} \
             --output /tmp/trade_execution.json
         env:
           ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
@@ -98,13 +130,6 @@ jobs:
               const result = JSON.parse(fs.readFileSync('/tmp/trade_execution.json', 'utf8'));
 
               if (result.success) {
-                const rankLabels = {
-                  rookie: 'Rookie',
-                  analyst: 'Analyst',
-                  strategist: 'Strategist',
-                  portfolio_manager: 'Portfolio Manager',
-                };
-                const rank = rankLabels[result.contributor_rank] || result.contributor_rank || 'Rookie';
                 comment = `## ✅ Trade Executed
 
             | Field | Value |
@@ -117,7 +142,7 @@ jobs:
             | **Order ID** | \`${result.order_id}\` |
             | **AI Score** | ${result.ai_score}/100 |
             | **Approvals** | ${result.approval_count} |
-            | **Contributor** | @${result.github_username || 'unknown'} (${rank}) |
+            | **Contributor** | @${result.github_username || 'unknown'} |
 
             _Executed at ${result.executed_at}_`;
               } else {

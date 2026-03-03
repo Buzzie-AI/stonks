@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Computes contributor metrics, assigns ranks, generates leaderboard,
+Computes contributor metrics, generates leaderboard,
 and updates README.md and data/contributors.json.
 
 Usage:
@@ -166,42 +166,8 @@ def compute_contributor_metrics(
             "win_rate": win_rate,
             "total_pnl": round(total_pnl, 2),
             "avg_ai_score": avg_ai,
-            "rank": "rookie",  # assigned in next step
             "trades_detail": trades_detail,
         }
-
-    return contributors
-
-
-def assign_ranks(contributors: dict[str, dict], config: dict) -> dict[str, dict]:
-    """Evaluate rank criteria from config (top-down) for each contributor.
-
-    Ranks are checked from highest to lowest; first match sticks.
-    """
-    ranks_config = config.get("ranks", {})
-
-    # Order: portfolio_manager > strategist > analyst > rookie (highest first)
-    rank_order = ["portfolio_manager", "strategist", "analyst", "rookie"]
-
-    for username, data in contributors.items():
-        assigned = "rookie"
-        for rank_name in rank_order:
-            rc = ranks_config.get(rank_name, {})
-            min_trades = rc.get("min_trades", 0)
-            min_win_rate = rc.get("min_win_rate", 0)
-            requires_positive_pnl = rc.get("requires_positive_pnl", False)
-
-            if data["trades_count"] < min_trades:
-                continue
-            if data["win_rate"] < min_win_rate:
-                continue
-            if requires_positive_pnl and data["total_pnl"] <= 0:
-                continue
-
-            assigned = rank_name
-            break
-
-        data["rank"] = assigned
 
     return contributors
 
@@ -216,25 +182,16 @@ def generate_leaderboard_table(contributors: dict[str, dict]) -> str:
         contributors.items(), key=lambda x: x[1]["total_pnl"], reverse=True
     )
 
-    rank_labels = {
-        "rookie": "Rookie",
-        "analyst": "Analyst",
-        "strategist": "Strategist",
-        "portfolio_manager": "Portfolio Manager",
-    }
-
-    rows = ["| # | Contributor | Rank | Trades | Win Rate | Total P&L | Avg AI Score |"]
-    rows.append("|---|-------------|------|--------|----------|-----------|--------------|")
+    rows = ["| # | Contributor | Trades | Win Rate | Total P&L | Avg AI Score |"]
+    rows.append("|---|-------------|--------|----------|-----------|--------------|")
 
     for i, (username, data) in enumerate(sorted_users, 1):
         pnl = data["total_pnl"]
         pnl_sign = "+" if pnl >= 0 else ""
         wr = f"{data['win_rate'] * 100:.0f}%"
-        rank_label = rank_labels.get(data["rank"], data["rank"])
         rows.append(
             f"| {i} "
             f"| @{username} "
-            f"| {rank_label} "
             f"| {data['trades_count']} "
             f"| {wr} "
             f"| {pnl_sign}${pnl:,.2f} "
@@ -285,7 +242,6 @@ def save_contributors(contributors: dict[str, dict], path: str):
             "win_rate": data["win_rate"],
             "total_pnl": data["total_pnl"],
             "avg_ai_score": data["avg_ai_score"],
-            "rank": data["rank"],
             "trades_detail": data["trades_detail"],
         }
 
@@ -323,9 +279,6 @@ def main():
     # Compute metrics
     contributors = compute_contributor_metrics(trades, current_prices)
 
-    # Assign ranks
-    contributors = assign_ranks(contributors, config)
-
     # Save contributors.json
     save_contributors(contributors, contributors_path)
 
@@ -336,7 +289,7 @@ def main():
     for username, data in sorted(
         contributors.items(), key=lambda x: x[1]["total_pnl"], reverse=True
     ):
-        print(f"  @{username}: {data['rank']} — P&L ${data['total_pnl']:+,.2f}")
+        print(f"  @{username}: P&L ${data['total_pnl']:+,.2f}")
 
 
 if __name__ == "__main__":
