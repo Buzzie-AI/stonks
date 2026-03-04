@@ -15,6 +15,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from alpaca.trading.client import TradingClient
+from alpaca.trading.requests import GetOrdersRequest
 import yaml
 
 
@@ -72,7 +73,26 @@ def fetch_portfolio(client: TradingClient) -> dict:
     }
 
 
-def generate_portfolio_table(portfolio: dict) -> str:
+def fetch_pending_orders(client: TradingClient) -> list:
+    """Fetch all open/pending orders."""
+    orders = client.get_orders(filter=GetOrdersRequest(status="open"))
+    result = []
+    for o in orders:
+        result.append(
+            {
+                "symbol": o.symbol,
+                "side": str(o.side),
+                "qty": str(o.qty) if o.qty is not None else None,
+                "notional": str(o.notional) if o.notional is not None else None,
+                "type": str(o.type),
+                "submitted_at": o.submitted_at.strftime("%Y-%m-%d %H:%M") if o.submitted_at else "",
+                "status": str(o.status),
+            }
+        )
+    return result
+
+
+def generate_portfolio_table(portfolio: dict, pending_orders: list | None = None) -> str:
     """Generate a markdown table of current holdings."""
     positions = portfolio["positions"]
     totals = portfolio["totals"]
@@ -107,10 +127,30 @@ def generate_portfolio_table(portfolio: dict) -> str:
         f"*Last updated: {totals['updated_at']}*\n"
     )
 
-    return table + summary
+    orders_section = "\n### Pending Orders\n\n"
+    if pending_orders:
+        order_rows = ["| Symbol | Side | Qty | Notional | Type | Submitted | Status |"]
+        order_rows.append("|--------|------|-----|----------|------|-----------|--------|")
+        for o in pending_orders:
+            qty_display = o["qty"] if o["qty"] else "-"
+            notional_display = f"${float(o['notional']):,.2f}" if o["notional"] else "-"
+            order_rows.append(
+                f"| {o['symbol']} "
+                f"| {o['side']} "
+                f"| {qty_display} "
+                f"| {notional_display} "
+                f"| {o['type']} "
+                f"| {o['submitted_at']} "
+                f"| {o['status']} |"
+            )
+        orders_section += "\n".join(order_rows) + "\n"
+    else:
+        orders_section += "*No pending orders.*\n"
+
+    return table + summary + orders_section
 
 
-def update_readme(portfolio: dict, readme_path: str = "README.md"):
+def update_readme(portfolio: dict, readme_path: str = "README.md", pending_orders: list | None = None):
     """Update the portfolio section in README.md."""
     if not Path(readme_path).exists():
         return
@@ -118,7 +158,7 @@ def update_readme(portfolio: dict, readme_path: str = "README.md"):
     with open(readme_path) as f:
         content = f.read()
 
-    table_md = generate_portfolio_table(portfolio)
+    table_md = generate_portfolio_table(portfolio, pending_orders)
 
     # Replace content between portfolio markers
     marker_start = "<!-- PORTFOLIO_START -->"
@@ -212,8 +252,9 @@ def main():
     with open(portfolio_path, "w") as f:
         json.dump(portfolio, f, indent=2)
 
-    # Update README
-    update_readme(portfolio)
+    # Fetch pending orders and update README
+    pending_orders = fetch_pending_orders(client)
+    update_readme(portfolio, pending_orders=pending_orders)
 
     print(
         f"Portfolio updated: {portfolio['totals']['position_count']} positions, "
