@@ -19,23 +19,23 @@ You open a PR → Claude scores your pitch → Community reviews → PR merged �
 <!-- PORTFOLIO_START -->
 | Symbol | Qty | Avg Cost | Current | Market Value | P&L | Return |
 |--------|-----|----------|---------|-------------|-----|--------|
-| NVDA | 50.0 | $180.94 | $183.16 | $9,158.00 | +$111.03 | +1.2% |
+| NVDA | 50.0 | $180.94 | $183.10 | $9,154.97 | +$108.00 | +1.2% |
 | PONY | 420.0 | $18.05 | $13.47 | $5,657.40 | $-1,923.88 | -25.4% |
 | FIG | 100.0 | $48.18 | $29.63 | $2,963.00 | $-1,855.00 | -38.5% |
-| HOOD | 25.0 | $126.69 | $82.59 | $2,064.75 | $-1,102.43 | -34.8% |
+| HOOD | 25.0 | $126.69 | $82.65 | $2,066.15 | $-1,101.03 | -34.8% |
 | 737CVR019 | 4.064262182 | $0.00 | $0.00 | $0.00 | +$0.00 | +0.0% |
 
-**Portfolio Value:** $24,673.61  
+**Portfolio Value:** $24,671.97  
 **Cash:** $4,830.46  
-**Total P&L:** $-4,770.28 (-19.4%)  
+**Total P&L:** $-4,771.92 (-19.4%)  
 **Positions:** 5  
-*Last updated: 2026-03-04T23:15:56.616467+00:00*
+*Last updated: 2026-03-04T23:17:21.894722+00:00*
 
 ### Pending Orders
 
 | Symbol | Side | Qty | Notional | Type | Submitted | Status |
 |--------|------|-----|----------|------|-----------|--------|
-| UNH | OrderSide.BUY | - | $200.00 | OrderType.MARKET | 2026-03-04 23:02 | OrderStatus.ACCEPTED |
+| UNH | buy | - | $200.00 | market | 2026-03-04 23:02 | accepted |
 
 <!-- PORTFOLIO_END -->
 
