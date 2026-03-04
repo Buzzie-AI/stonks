@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Computes contributor metrics, generates leaderboard,
-and updates README.md and data/contributors.json.
+and updates README.md.
 
 Usage:
     python scripts/update_leaderboard.py --config config/config.yml
@@ -12,7 +12,6 @@ import json
 import os
 import re
 from collections import defaultdict
-from datetime import datetime, timezone
 from pathlib import Path
 
 import yaml
@@ -227,29 +226,6 @@ def update_readme_leaderboard(contributors: dict[str, dict], readme_path: str = 
         f.write(content)
 
 
-def save_contributors(contributors: dict[str, dict], path: str):
-    """Save contributors data to JSON file."""
-    # Strip trades_detail for the saved file to keep it concise
-    output = {
-        "contributors": {},
-        "updated_at": datetime.now(timezone.utc).isoformat(),
-    }
-    for username, data in contributors.items():
-        output["contributors"][username] = {
-            "trades_count": data["trades_count"],
-            "wins": data["wins"],
-            "losses": data["losses"],
-            "win_rate": data["win_rate"],
-            "total_pnl": data["total_pnl"],
-            "avg_ai_score": data["avg_ai_score"],
-            "trades_detail": data["trades_detail"],
-        }
-
-    Path(path).parent.mkdir(parents=True, exist_ok=True)
-    with open(path, "w") as f:
-        json.dump(output, f, indent=2)
-
-
 def main():
     parser = argparse.ArgumentParser(description="Update contributor leaderboard")
     parser.add_argument("--config", required=True)
@@ -259,9 +235,6 @@ def main():
 
     history_path = config.get("logging", {}).get(
         "trade_history_file", "data/trade_history.json"
-    )
-    contributors_path = config.get("logging", {}).get(
-        "contributors_file", "data/contributors.json"
     )
 
     trades = load_trade_history(history_path)
@@ -278,9 +251,6 @@ def main():
 
     # Compute metrics
     contributors = compute_contributor_metrics(trades, current_prices)
-
-    # Save contributors.json
-    save_contributors(contributors, contributors_path)
 
     # Update README leaderboard
     update_readme_leaderboard(contributors)

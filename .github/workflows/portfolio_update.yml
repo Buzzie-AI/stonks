@@ -43,7 +43,7 @@ jobs:
         run: |
           git config user.name "stonks-bot"
           git config user.email "bot@stonks-portfolio.local"
-          git add data/portfolio.json data/contributors.json README.md
+          git add data/portfolio.json README.md
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else

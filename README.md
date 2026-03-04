@@ -87,7 +87,7 @@ All parameters are configurable in `config/config.yml`.
 ├── .github/workflows/     # evaluate → execute → portfolio update + leaderboard
 ├── scripts/               # Python: parse, evaluate, trade, update, leaderboard
 ├── config/                # config.yml + banned tickers
-├── data/                  # portfolio.json, trade_history.json, contributors.json
+├── data/                  # portfolio.json, trade_history.json
 ├── CONTRIBUTING.md        # How to submit a trade
 └── README.md              # You are here
 ```

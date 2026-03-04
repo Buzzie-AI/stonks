@@ -43,4 +43,3 @@ portfolio:
 logging:
   trade_history_file: "data/trade_history.json"
   portfolio_file: "data/portfolio.json"
-  contributors_file: "data/contributors.json"
