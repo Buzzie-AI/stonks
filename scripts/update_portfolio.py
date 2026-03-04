@@ -81,12 +81,12 @@ def fetch_pending_orders(client: TradingClient) -> list:
         result.append(
             {
                 "symbol": o.symbol,
-                "side": str(o.side),
+                "side": o.side.value if o.side else "",
                 "qty": str(o.qty) if o.qty is not None else None,
                 "notional": str(o.notional) if o.notional is not None else None,
-                "type": str(o.type),
+                "type": o.type.value if o.type else "",
                 "submitted_at": o.submitted_at.strftime("%Y-%m-%d %H:%M") if o.submitted_at else "",
-                "status": str(o.status),
+                "status": o.status.value if o.status else "",
             }
         )
     return result
