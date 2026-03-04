@@ -1,9 +1,25 @@
 {
-  "trades": [],
+  "trades": [
+    {
+      "id": "trade_0001",
+      "pr_number": 9,
+      "github_username": "sudharshan-nn",
+      "ticker": "HNGE",
+      "action": "BUY",
+      "quantity": 10.0,
+      "price": 45.71,
+      "notional": 500.0,
+      "order_id": "475c7142-74df-4c3e-921b-306b91a3bc32",
+      "executed_at": "2026-03-04T23:27:06.654364+00:00",
+      "ai_score": 78,
+      "approval_count": 0,
+      "status": "filled"
+    }
+  ],
   "summary": {
-    "total_trades": 0,
-    "successful_trades": 0,
+    "total_trades": 1,
+    "successful_trades": 1,
     "failed_trades": 0,
-    "total_capital_deployed": 0
+    "total_capital_deployed": 500.0
   }
 }

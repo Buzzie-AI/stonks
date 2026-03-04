@@ -19,22 +19,23 @@ You open a PR → Claude scores your pitch → Community reviews → PR merged �
 <!-- PORTFOLIO_START -->
 | Symbol | Qty | Avg Cost | Current | Market Value | P&L | Return |
 |--------|-----|----------|---------|-------------|-----|--------|
-| NVDA | 50.0 | $180.94 | $183.10 | $9,154.97 | +$108.00 | +1.2% |
+| NVDA | 50.0 | $180.94 | $183.00 | $9,150.00 | +$103.03 | +1.1% |
 | PONY | 420.0 | $18.05 | $13.47 | $5,657.40 | $-1,923.88 | -25.4% |
-| FIG | 100.0 | $48.18 | $29.63 | $2,963.00 | $-1,855.00 | -38.5% |
-| HOOD | 25.0 | $126.69 | $82.65 | $2,066.15 | $-1,101.03 | -34.8% |
+| FIG | 100.0 | $48.18 | $29.65 | $2,965.00 | $-1,853.00 | -38.5% |
+| HOOD | 25.0 | $126.69 | $82.66 | $2,066.50 | $-1,100.68 | -34.8% |
 | 737CVR019 | 4.064262182 | $0.00 | $0.00 | $0.00 | +$0.00 | +0.0% |
 
-**Portfolio Value:** $24,671.97  
+**Portfolio Value:** $24,669.36  
 **Cash:** $4,830.46  
-**Total P&L:** $-4,771.92 (-19.4%)  
+**Total P&L:** $-4,774.53 (-19.4%)  
 **Positions:** 5  
-*Last updated: 2026-03-04T23:17:21.894722+00:00*
+*Last updated: 2026-03-04T23:27:07.432841+00:00*
 
 ### Pending Orders
 
 | Symbol | Side | Qty | Notional | Type | Submitted | Status |
 |--------|------|-----|----------|------|-----------|--------|
+| HNGE | buy | 10 | - | market | 2026-03-04 23:27 | accepted |
 | UNH | buy | - | $200.00 | market | 2026-03-04 23:02 | accepted |
 
 <!-- PORTFOLIO_END -->
@@ -42,7 +43,9 @@ You open a PR → Claude scores your pitch → Community reviews → PR merged �
 ## Contributor Leaderboard
 
 <!-- LEADERBOARD_START -->
-No contributors yet. Submit a PR to get on the leaderboard!
+| # | Contributor | Trades | Win Rate | Total P&L | Avg AI Score |
+|---|-------------|--------|----------|-----------|--------------|
+| 1 | @sudharshan-nn | 1 | 0% | +$0.00 | 78 |
 
 <!-- LEADERBOARD_END -->
 
