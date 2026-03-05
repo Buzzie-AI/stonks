@@ -19,24 +19,23 @@ You open a PR → Claude scores your pitch → Community reviews → PR merged �
 <!-- PORTFOLIO_START -->
 | Symbol | Qty | Avg Cost | Current | Market Value | P&L | Return |
 |--------|-----|----------|---------|-------------|-----|--------|
-| NVDA | 50.0 | $180.94 | $183.00 | $9,150.00 | +$103.03 | +1.1% |
-| PONY | 420.0 | $18.05 | $13.47 | $5,657.40 | $-1,923.88 | -25.4% |
-| FIG | 100.0 | $48.18 | $29.65 | $2,965.00 | $-1,853.00 | -38.5% |
-| HOOD | 25.0 | $126.69 | $82.66 | $2,066.50 | $-1,100.68 | -34.8% |
+| NVDA | 50.0 | $180.94 | $182.77 | $9,138.26 | +$91.29 | +1.0% |
+| PONY | 420.0 | $18.05 | $13.62 | $5,720.40 | $-1,860.88 | -24.6% |
+| FIG | 100.0 | $48.18 | $30.25 | $3,025.00 | $-1,793.00 | -37.2% |
+| HOOD | 25.0 | $126.69 | $80.51 | $2,012.75 | $-1,154.43 | -36.5% |
+| HNGE | 10.0 | $45.67 | $45.84 | $458.40 | +$1.70 | +0.4% |
+| UNH | 0.689655172 | $290.00 | $289.33 | $199.54 | $-0.46 | -0.2% |
 | 737CVR019 | 4.064262182 | $0.00 | $0.00 | $0.00 | +$0.00 | +0.0% |
 
-**Portfolio Value:** $24,669.36  
-**Cash:** $4,830.46  
-**Total P&L:** $-4,774.53 (-19.4%)  
-**Positions:** 5  
-*Last updated: 2026-03-04T23:27:07.432841+00:00*
+**Portfolio Value:** $24,728.11  
+**Cash:** $4,173.76  
+**Total P&L:** $-4,715.78 (-18.7%)  
+**Positions:** 7  
+*Last updated: 2026-03-05T21:36:29.353520+00:00*
 
 ### Pending Orders
 
-| Symbol | Side | Qty | Notional | Type | Submitted | Status |
-|--------|------|-----|----------|------|-----------|--------|
-| HNGE | buy | 10 | - | market | 2026-03-04 23:27 | accepted |
-| UNH | buy | - | $200.00 | market | 2026-03-04 23:02 | accepted |
+*No pending orders.*
 
 <!-- PORTFOLIO_END -->
 
@@ -45,7 +44,7 @@ You open a PR → Claude scores your pitch → Community reviews → PR merged �
 <!-- LEADERBOARD_START -->
 | # | Contributor | Trades | Win Rate | Total P&L | Avg AI Score |
 |---|-------------|--------|----------|-----------|--------------|
-| 1 | @sudharshan-nn | 1 | 0% | +$0.00 | 78 |
+| 1 | @sudharshan-nn | 1 | 100% | +$1.15 | 78 |
 
 <!-- LEADERBOARD_END -->
 
