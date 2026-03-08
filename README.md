@@ -31,7 +31,7 @@ You open a PR → Claude scores your pitch → Community reviews → PR merged �
 **Cash:** $4,173.76  
 **Total P&L:** $-5,640.31 (-22.3%)  
 **Positions:** 7  
-*Last updated: 2026-03-07T21:30:57.349977+00:00*
+*Last updated: 2026-03-08T21:33:27.612822+00:00*
 
 ### Pending Orders
 
