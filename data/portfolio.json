@@ -4,70 +4,70 @@
       "symbol": "NVDA",
       "qty": 60.0,
       "avg_entry_price": 180.27115,
-      "current_price": 181.99,
-      "market_value": 10919.4,
-      "unrealized_pl": 103.131,
-      "unrealized_plpc": 0.95,
+      "current_price": 180.3822,
+      "market_value": 10822.932,
+      "unrealized_pl": 6.663,
+      "unrealized_plpc": 0.06,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "PONY",
       "qty": 420.0,
       "avg_entry_price": 18.050667,
-      "current_price": 11.16,
-      "market_value": 4687.2,
-      "unrealized_pl": -2894.08014,
-      "unrealized_plpc": -38.17,
+      "current_price": 11.05,
+      "market_value": 4641.0,
+      "unrealized_pl": -2940.28014,
+      "unrealized_plpc": -38.78,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "FIG",
       "qty": 100.0,
       "avg_entry_price": 48.18,
-      "current_price": 27.35,
-      "market_value": 2735.0,
-      "unrealized_pl": -2083.0,
-      "unrealized_plpc": -43.23,
+      "current_price": 25.4253,
+      "market_value": 2542.53,
+      "unrealized_pl": -2275.47,
+      "unrealized_plpc": -47.23,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "HOOD",
       "qty": 25.0,
       "avg_entry_price": 126.68724,
-      "current_price": 77.2973,
-      "market_value": 1932.4325,
-      "unrealized_pl": -1234.7485,
-      "unrealized_plpc": -38.99,
+      "current_price": 74.74,
+      "market_value": 1868.5,
+      "unrealized_pl": -1298.681,
+      "unrealized_plpc": -41.0,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "HNGE",
       "qty": 10.0,
       "avg_entry_price": 45.67,
-      "current_price": 44.11,
-      "market_value": 441.1,
-      "unrealized_pl": -15.6,
-      "unrealized_plpc": -3.42,
+      "current_price": 44.38,
+      "market_value": 443.8,
+      "unrealized_pl": -12.9,
+      "unrealized_plpc": -2.83,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "BTCUSD",
       "qty": 0.003449908,
       "avg_entry_price": 70867.17,
-      "current_price": 74673.7,
-      "market_value": 257.617395,
-      "unrealized_pl": 13.132178,
-      "unrealized_plpc": 5.37,
+      "current_price": 71370.4,
+      "market_value": 246.221314,
+      "unrealized_pl": 1.736097,
+      "unrealized_plpc": 0.71,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "UNH",
       "qty": 0.689655172,
       "avg_entry_price": 290.0,
-      "current_price": 287.0,
-      "market_value": 197.931034,
-      "unrealized_pl": -2.068966,
-      "unrealized_plpc": -1.03,
+      "current_price": 283.75,
+      "market_value": 195.689655,
+      "unrealized_pl": -4.310345,
+      "unrealized_plpc": -2.15,
       "side": "PositionSide.LONG"
     },
     {
@@ -82,15 +82,15 @@
     }
   ],
   "totals": {
-    "total_value": 21170.68,
-    "total_pl": -6113.23,
-    "total_plpc": -22.41,
+    "total_value": 20760.67,
+    "total_pl": -6523.24,
+    "total_plpc": -23.91,
     "position_count": 8,
-    "updated_at": "2026-03-17T21:49:54.861257+00:00"
+    "updated_at": "2026-03-18T21:45:33.213862+00:00"
   },
   "account": {
     "cash": 2160.88,
-    "portfolio_value": 23331.56,
-    "buying_power": 17371.52
+    "portfolio_value": 22921.55,
+    "buying_power": 17208.88
   }
 }
