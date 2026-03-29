@@ -24,19 +24,24 @@ You open a PR → Claude scores your pitch → Community reviews → PR merged �
 | FIG | 100.0 | $48.18 | $20.19 | $2,019.00 | $-2,799.00 | -58.1% |
 | HOOD | 25.0 | $126.69 | $66.02 | $1,650.50 | $-1,516.68 | -47.9% |
 | HNGE | 10.0 | $45.67 | $36.25 | $362.50 | $-94.20 | -20.6% |
-| BTCUSD | 0.003449908 | $70,867.17 | $66,838.40 | $230.59 | $-13.90 | -5.7% |
+| BTCUSD | 0.003449908 | $70,867.17 | $66,600.83 | $229.77 | $-14.72 | -6.0% |
 | UNH | 0.689655172 | $290.00 | $259.02 | $178.63 | $-21.37 | -10.7% |
 | 737CVR019 | 4.064262182 | $0.00 | $0.00 | $0.00 | +$0.00 | +0.0% |
 
-**Portfolio Value:** $20,492.10  
+**Portfolio Value:** $20,491.28  
 **Cash:** $2,160.88  
-**Total P&L:** $-8,952.69 (-32.8%)  
+**Total P&L:** $-8,953.51 (-32.8%)  
 **Positions:** 8  
-*Last updated: 2026-03-28T21:38:56.957458+00:00*
+*Last updated: 2026-03-29T21:41:46.177001+00:00*
 
 ### Pending Orders
 
-*No pending orders.*
+| Symbol | Side | Qty | Notional | Type | Submitted | Status |
+|--------|------|-----|----------|------|-----------|--------|
+| HOOD | sell | 25 | - | stop | 2026-03-28 22:34 | accepted |
+| NVDA | sell | 48 | - | market | 2026-03-28 22:34 | accepted |
+| FIG | sell | 100 | - | market | 2026-03-28 22:34 | accepted |
+| PONY | sell | 420 | - | market | 2026-03-28 22:34 | accepted |
 
 <!-- PORTFOLIO_END -->
 
@@ -45,7 +50,7 @@ You open a PR → Claude scores your pitch → Community reviews → PR merged �
 <!-- LEADERBOARD_START -->
 | # | Contributor | Trades | Win Rate | Total P&L | Avg AI Score |
 |---|-------------|--------|----------|-----------|--------------|
-| 1 | @nivychu | 1 | 0% | $-14.15 | 78 |
+| 1 | @nivychu | 1 | 0% | $-14.83 | 78 |
 | 2 | @sudharshan-nn | 1 | 0% | $-94.55 | 78 |
 
 <!-- LEADERBOARD_END -->
