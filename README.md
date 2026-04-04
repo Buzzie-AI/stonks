@@ -24,15 +24,15 @@ You open a PR → Claude scores your pitch → Community reviews → PR merged �
 | NKE | 44.0 | $45.29 | $44.19 | $1,944.36 | $-48.26 | -2.4% |
 | DDOG | 16.0 | $119.00 | $120.36 | $1,925.76 | +$21.76 | +1.1% |
 | CEG | 7.0 | $280.00 | $272.82 | $1,909.74 | $-50.26 | -2.6% |
-| BTCUSD | 0.003449908 | $70,867.17 | $66,889.52 | $230.76 | $-13.72 | -5.6% |
+| BTCUSD | 0.003449908 | $70,867.17 | $67,282.21 | $232.12 | $-12.37 | -5.1% |
 | UNH | 0.689655172 | $290.00 | $277.26 | $191.21 | $-8.79 | -4.4% |
 | 737CVR019 | 4.064262182 | $0.00 | $0.00 | $0.00 | +$0.00 | +0.0% |
 
-**Portfolio Value:** $20,970.42  
+**Portfolio Value:** $20,971.77  
 **Cash:** $10,681.38  
-**Total P&L:** $-61.25 (-0.6%)  
+**Total P&L:** $-59.90 (-0.6%)  
 **Positions:** 8  
-*Last updated: 2026-04-03T21:44:30.286257+00:00*
+*Last updated: 2026-04-04T21:40:54.373058+00:00*
 
 ### Pending Orders
 
@@ -52,7 +52,7 @@ You open a PR → Claude scores your pitch → Community reviews → PR merged �
 <!-- LEADERBOARD_START -->
 | # | Contributor | Trades | Win Rate | Total P&L | Avg AI Score |
 |---|-------------|--------|----------|-----------|--------------|
-| 1 | @nivychu | 1 | 0% | $-13.64 | 78 |
+| 1 | @nivychu | 1 | 0% | $-12.41 | 78 |
 | 2 | @sudharshan-nn | 1 | 0% | $-66.50 | 78 |
 
 <!-- LEADERBOARD_END -->
