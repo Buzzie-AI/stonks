@@ -4,90 +4,90 @@
       "symbol": "NVDA",
       "qty": 12.0,
       "avg_entry_price": 177.28225,
-      "current_price": 198.21,
-      "market_value": 2378.52,
-      "unrealized_pl": 251.133,
-      "unrealized_plpc": 11.8,
+      "current_price": 197.68,
+      "market_value": 2372.16,
+      "unrealized_pl": 244.773,
+      "unrealized_plpc": 11.51,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "MU",
       "qty": 5.0,
       "avg_entry_price": 375.0,
-      "current_price": 453.74,
-      "market_value": 2268.7,
-      "unrealized_pl": 393.7,
-      "unrealized_plpc": 21.0,
-      "side": "PositionSide.LONG"
-    },
-    {
-      "symbol": "BLK",
-      "qty": 2.0,
-      "avg_entry_price": 1057.92,
-      "current_price": 1050.872,
-      "market_value": 2101.744,
-      "unrealized_pl": -14.096,
-      "unrealized_plpc": -0.67,
+      "current_price": 454.1001,
+      "market_value": 2270.5005,
+      "unrealized_pl": 395.5005,
+      "unrealized_plpc": 21.09,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "CEG",
       "qty": 7.0,
       "avg_entry_price": 280.0,
-      "current_price": 295.18,
-      "market_value": 2066.26,
-      "unrealized_pl": 106.26,
-      "unrealized_plpc": 5.42,
+      "current_price": 300.57,
+      "market_value": 2103.99,
+      "unrealized_pl": 143.99,
+      "unrealized_plpc": 7.35,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "CVS",
       "qty": 27.0,
       "avg_entry_price": 75.8286,
-      "current_price": 75.06,
-      "market_value": 2026.62,
-      "unrealized_pl": -20.7522,
-      "unrealized_plpc": -1.01,
+      "current_price": 76.63,
+      "market_value": 2069.01,
+      "unrealized_pl": 21.6378,
+      "unrealized_plpc": 1.06,
+      "side": "PositionSide.LONG"
+    },
+    {
+      "symbol": "BLK",
+      "qty": 2.0,
+      "avg_entry_price": 1057.92,
+      "current_price": 1026.93,
+      "market_value": 2053.86,
+      "unrealized_pl": -61.98,
+      "unrealized_plpc": -2.93,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "NKE",
       "qty": 44.0,
       "avg_entry_price": 45.2868,
-      "current_price": 45.68,
-      "market_value": 2009.92,
-      "unrealized_pl": 17.3008,
-      "unrealized_plpc": 0.87,
+      "current_price": 45.8,
+      "market_value": 2015.2,
+      "unrealized_pl": 22.5808,
+      "unrealized_plpc": 1.13,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "CCI",
       "qty": 20.0,
       "avg_entry_price": 84.31,
-      "current_price": 85.63,
-      "market_value": 1712.6,
-      "unrealized_pl": 26.4,
-      "unrealized_plpc": 1.57,
+      "current_price": 86.87,
+      "market_value": 1737.4,
+      "unrealized_pl": 51.2,
+      "unrealized_plpc": 3.04,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "BTCUSD",
       "qty": 0.003449908,
       "avg_entry_price": 70867.17,
-      "current_price": 74779.4,
-      "market_value": 257.98205,
-      "unrealized_pl": 13.496833,
-      "unrealized_plpc": 5.52,
+      "current_price": 74950.05,
+      "market_value": 258.570777,
+      "unrealized_pl": 14.08556,
+      "unrealized_plpc": 5.76,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "UNH",
       "qty": 0.689655172,
       "avg_entry_price": 290.0,
-      "current_price": 313.6,
-      "market_value": 216.275862,
-      "unrealized_pl": 16.275862,
-      "unrealized_plpc": 8.14,
+      "current_price": 316.51,
+      "market_value": 218.282758,
+      "unrealized_pl": 18.282758,
+      "unrealized_plpc": 9.14,
       "side": "PositionSide.LONG"
     },
     {
@@ -102,15 +102,15 @@
     }
   ],
   "totals": {
-    "total_value": 15038.62,
-    "total_pl": 789.72,
-    "total_plpc": 5.54,
+    "total_value": 15098.97,
+    "total_pl": 850.07,
+    "total_plpc": 5.97,
     "position_count": 10,
-    "updated_at": "2026-04-15T21:59:33.940058+00:00"
+    "updated_at": "2026-04-16T21:54:04.732388+00:00"
   },
   "account": {
     "cash": 6615.75,
-    "portfolio_value": 21654.37,
-    "buying_power": 28012.14
+    "portfolio_value": 21714.72,
+    "buying_power": 28071.9
   }
 }
