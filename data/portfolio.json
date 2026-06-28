@@ -94,10 +94,10 @@
       "symbol": "BTCUSD",
       "qty": 0.003449908,
       "avg_entry_price": 70867.17,
-      "current_price": 60073.4,
-      "market_value": 207.247703,
-      "unrealized_pl": -37.237514,
-      "unrealized_plpc": -15.23,
+      "current_price": 59819.52,
+      "market_value": 206.371841,
+      "unrealized_pl": -38.113376,
+      "unrealized_plpc": -15.59,
       "side": "PositionSide.LONG"
     },
     {
@@ -112,15 +112,15 @@
     }
   ],
   "totals": {
-    "total_value": 8527.38,
-    "total_pl": 1158.5,
-    "total_plpc": 15.72,
+    "total_value": 8526.51,
+    "total_pl": 1157.63,
+    "total_plpc": 15.71,
     "position_count": 11,
-    "updated_at": "2026-06-27T22:11:43.420663+00:00"
+    "updated_at": "2026-06-28T22:10:05.747639+00:00"
   },
   "account": {
     "cash": 22756.96,
-    "portfolio_value": 31284.34,
+    "portfolio_value": 31283.47,
     "buying_power": 114324.22
   }
 }
