@@ -4,9 +4,9 @@
       "symbol": "LLY",
       "qty": 1.0,
       "avg_entry_price": 1158.3696,
-      "current_price": 1255.5,
-      "market_value": 1255.5,
-      "unrealized_pl": 97.1304,
+      "current_price": 1255.4,
+      "market_value": 1255.4,
+      "unrealized_pl": 97.0304,
       "unrealized_plpc": 8.38,
       "side": "PositionSide.LONG"
     },
@@ -14,10 +14,10 @@
       "symbol": "PANW",
       "qty": 3.0,
       "avg_entry_price": 369.305,
-      "current_price": 358.2,
-      "market_value": 1074.6,
-      "unrealized_pl": -33.315,
-      "unrealized_plpc": -3.01,
+      "current_price": 357.87,
+      "market_value": 1073.61,
+      "unrealized_pl": -34.305,
+      "unrealized_plpc": -3.1,
       "side": "PositionSide.LONG"
     },
     {
@@ -44,20 +44,20 @@
       "symbol": "SYM",
       "qty": 15.0,
       "avg_entry_price": 41.0,
-      "current_price": 41.66,
-      "market_value": 624.9,
-      "unrealized_pl": 9.9,
-      "unrealized_plpc": 1.61,
+      "current_price": 41.83,
+      "market_value": 627.45,
+      "unrealized_pl": 12.45,
+      "unrealized_plpc": 2.02,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "RKLB",
       "qty": 8.0,
       "avg_entry_price": 73.56,
-      "current_price": 73.03,
-      "market_value": 584.24,
-      "unrealized_pl": -4.24,
-      "unrealized_plpc": -0.72,
+      "current_price": 72.57,
+      "market_value": 580.56,
+      "unrealized_pl": -7.92,
+      "unrealized_plpc": -1.35,
       "side": "PositionSide.LONG"
     },
     {
@@ -81,16 +81,6 @@
       "side": "PositionSide.LONG"
     },
     {
-      "symbol": "BTCUSD",
-      "qty": 0.003449908,
-      "avg_entry_price": 70867.17,
-      "current_price": 78105.86,
-      "market_value": 269.458031,
-      "unrealized_pl": 24.972814,
-      "unrealized_plpc": 10.21,
-      "side": "PositionSide.LONG"
-    },
-    {
       "symbol": "D",
       "qty": 4.0,
       "avg_entry_price": 68.82,
@@ -101,13 +91,23 @@
       "side": "PositionSide.LONG"
     },
     {
+      "symbol": "BTCUSD",
+      "qty": 0.003449908,
+      "avg_entry_price": 70867.17,
+      "current_price": 77122.4,
+      "market_value": 266.065185,
+      "unrealized_pl": 21.579968,
+      "unrealized_plpc": 8.83,
+      "side": "PositionSide.LONG"
+    },
+    {
       "symbol": "UNH",
       "qty": 0.519655172,
       "avg_entry_price": 290.0,
-      "current_price": 390.15,
-      "market_value": 202.743465,
-      "unrealized_pl": 52.043465,
-      "unrealized_plpc": 34.53,
+      "current_price": 390.11,
+      "market_value": 202.722679,
+      "unrealized_pl": 52.022679,
+      "unrealized_plpc": 34.52,
       "side": "PositionSide.LONG"
     },
     {
@@ -122,15 +122,15 @@
     }
   ],
   "totals": {
-    "total_value": 6746.0,
-    "total_pl": 158.17,
-    "total_plpc": 2.4,
+    "total_value": 6740.37,
+    "total_pl": 152.54,
+    "total_plpc": 2.32,
     "position_count": 12,
-    "updated_at": "2026-08-21T21:32:16.947617+00:00"
+    "updated_at": "2026-08-22T21:29:45.288165+00:00"
   },
   "account": {
     "cash": 23931.93,
-    "portfolio_value": 30677.93,
-    "buying_power": 112524.77
+    "portfolio_value": 30672.3,
+    "buying_power": 112520.42
   }
 }
