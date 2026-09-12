@@ -34,10 +34,10 @@
       "symbol": "BTCUSD",
       "qty": 0.003449908,
       "avg_entry_price": 70867.17,
-      "current_price": 77097.42,
-      "market_value": 265.979006,
-      "unrealized_pl": 21.493789,
-      "unrealized_plpc": 8.79,
+      "current_price": 77195.26,
+      "market_value": 266.316545,
+      "unrealized_pl": 21.831328,
+      "unrealized_plpc": 8.93,
       "side": "PositionSide.LONG"
     },
     {
@@ -54,10 +54,10 @@
       "symbol": "UNH",
       "qty": 0.519655172,
       "avg_entry_price": 290.0,
-      "current_price": 378.6581,
-      "market_value": 196.77164,
-      "unrealized_pl": 46.07164,
-      "unrealized_plpc": 30.57,
+      "current_price": 379.09,
+      "market_value": 196.996079,
+      "unrealized_pl": 46.296079,
+      "unrealized_plpc": 30.72,
       "side": "PositionSide.LONG"
     },
     {
@@ -72,15 +72,15 @@
     }
   ],
   "totals": {
-    "total_value": 2522.51,
-    "total_pl": 75.5,
-    "total_plpc": 3.09,
+    "total_value": 2523.07,
+    "total_pl": 76.07,
+    "total_plpc": 3.11,
     "position_count": 7,
-    "updated_at": "2026-09-11T23:10:47.631499+00:00"
+    "updated_at": "2026-09-12T22:57:06.246346+00:00"
   },
   "account": {
     "cash": 27671.24,
-    "portfolio_value": 30193.75,
-    "buying_power": 116750.47
+    "portfolio_value": 30194.31,
+    "buying_power": 116751.1
   }
 }
