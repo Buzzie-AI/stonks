@@ -22,15 +22,15 @@ You open a PR → Claude scores your pitch → Community reviews → PR merged �
 | DLR | 4.0 | $198.87 | $178.61 | $714.44 | $-81.04 | -10.2% |
 | SYM | 15.0 | $41.00 | $43.47 | $652.05 | +$37.05 | +6.0% |
 | SYY | 5.0 | $73.21 | $78.46 | $392.30 | +$26.24 | +7.2% |
-| BTCUSD | 0.003449908 | $70,867.17 | $84,326.80 | $290.92 | +$46.43 | +19.0% |
+| BTCUSD | 0.003449908 | $70,867.17 | $84,320.12 | $290.90 | +$46.41 | +19.0% |
 | UNH | 0.519655172 | $290.00 | $376.59 | $195.70 | +$45.00 | +29.9% |
 | 737CVR019 | 4.064262182 | $0.00 | $0.00 | $0.00 | +$0.00 | +0.0% |
 
-**Portfolio Value:** $30,167.10  
+**Portfolio Value:** $30,167.07  
 **Cash:** $27,921.69  
-**Total P&L:** +$73.68 (+3.4%)  
+**Total P&L:** +$73.66 (+3.4%)  
 **Positions:** 6  
-*Last updated: 2026-09-26T23:29:51.057950+00:00*
+*Last updated: 2026-09-27T23:45:51.024835+00:00*
 
 ### Pending Orders
 
@@ -48,7 +48,7 @@ You open a PR → Claude scores your pitch → Community reviews → PR merged �
 | # | Contributor | Trades | Win Rate | Total P&L | Avg AI Score |
 |---|-------------|--------|----------|-----------|--------------|
 | 1 | @sudharshan-nn | 1 | 100% | +$498.75 | 78 |
-| 2 | @nivychu | 1 | 100% | +$47.20 | 78 |
+| 2 | @nivychu | 1 | 100% | +$47.23 | 78 |
 
 <!-- LEADERBOARD_END -->
 
