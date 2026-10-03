@@ -4,40 +4,40 @@
       "symbol": "NVDA",
       "qty": 15.0,
       "avg_entry_price": 229.0,
-      "current_price": 234.22,
-      "market_value": 3513.3,
-      "unrealized_pl": 78.3,
-      "unrealized_plpc": 2.28,
+      "current_price": 233.95,
+      "market_value": 3509.25,
+      "unrealized_pl": 74.25,
+      "unrealized_plpc": 2.16,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "REGN",
       "qty": 2.0,
       "avg_entry_price": 737.3225,
-      "current_price": 736.5,
-      "market_value": 1473.0,
-      "unrealized_pl": -1.645,
-      "unrealized_plpc": -0.11,
+      "current_price": 735.2,
+      "market_value": 1470.4,
+      "unrealized_pl": -4.245,
+      "unrealized_plpc": -0.29,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "AVGO",
       "qty": 3.0,
       "avg_entry_price": 353.3776,
-      "current_price": 355.1,
-      "market_value": 1065.3,
-      "unrealized_pl": 5.1672,
-      "unrealized_plpc": 0.49,
+      "current_price": 355.14,
+      "market_value": 1065.42,
+      "unrealized_pl": 5.2872,
+      "unrealized_plpc": 0.5,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "HPE",
       "qty": 14.0,
       "avg_entry_price": 64.0,
-      "current_price": 69.6738,
-      "market_value": 975.4332,
-      "unrealized_pl": 79.4332,
-      "unrealized_plpc": 8.87,
+      "current_price": 69.33,
+      "market_value": 970.62,
+      "unrealized_pl": 74.62,
+      "unrealized_plpc": 8.33,
       "side": "PositionSide.LONG"
     },
     {
@@ -54,10 +54,10 @@
       "symbol": "SYM",
       "qty": 15.0,
       "avg_entry_price": 41.0,
-      "current_price": 43.5077,
-      "market_value": 652.6155,
-      "unrealized_pl": 37.6155,
-      "unrealized_plpc": 6.12,
+      "current_price": 43.28,
+      "market_value": 649.2,
+      "unrealized_pl": 34.2,
+      "unrealized_plpc": 5.56,
       "side": "PositionSide.LONG"
     },
     {
@@ -74,10 +74,10 @@
       "symbol": "BTCUSD",
       "qty": 0.003449908,
       "avg_entry_price": 70867.17,
-      "current_price": 84509.667,
-      "market_value": 291.550576,
-      "unrealized_pl": 47.065359,
-      "unrealized_plpc": 19.25,
+      "current_price": 84767.5,
+      "market_value": 292.440076,
+      "unrealized_pl": 47.954859,
+      "unrealized_plpc": 19.61,
       "side": "PositionSide.LONG"
     },
     {
@@ -102,15 +102,15 @@
     }
   ],
   "totals": {
-    "total_value": 9266.11,
-    "total_pl": 228.6,
-    "total_plpc": 2.53,
+    "total_value": 9252.24,
+    "total_pl": 214.73,
+    "total_plpc": 2.38,
     "position_count": 10,
-    "updated_at": "2026-10-03T00:23:12.564357+00:00"
+    "updated_at": "2026-10-03T23:43:55.937571+00:00"
   },
   "account": {
     "cash": 21136.06,
-    "portfolio_value": 30402.17,
-    "buying_power": 109411.96
+    "portfolio_value": 30388.3,
+    "buying_power": 109372.0
   }
 }
