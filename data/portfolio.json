@@ -4,20 +4,20 @@
       "symbol": "NVDA",
       "qty": 15.0,
       "avg_entry_price": 229.0,
-      "current_price": 213.7954,
-      "market_value": 3206.931,
-      "unrealized_pl": -228.069,
-      "unrealized_plpc": -6.64,
+      "current_price": 214.13,
+      "market_value": 3211.95,
+      "unrealized_pl": -223.05,
+      "unrealized_plpc": -6.49,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "REGN",
       "qty": 2.0,
       "avg_entry_price": 737.3225,
-      "current_price": 792.0,
-      "market_value": 1584.0,
-      "unrealized_pl": 109.355,
-      "unrealized_plpc": 7.42,
+      "current_price": 790.74,
+      "market_value": 1581.48,
+      "unrealized_pl": 106.835,
+      "unrealized_plpc": 7.25,
       "side": "PositionSide.LONG"
     },
     {
@@ -34,10 +34,10 @@
       "symbol": "SYM",
       "qty": 15.0,
       "avg_entry_price": 41.0,
-      "current_price": 38.68,
-      "market_value": 580.2,
-      "unrealized_pl": -34.8,
-      "unrealized_plpc": -5.66,
+      "current_price": 38.77,
+      "market_value": 581.55,
+      "unrealized_pl": -33.45,
+      "unrealized_plpc": -5.44,
       "side": "PositionSide.LONG"
     },
     {
@@ -54,20 +54,20 @@
       "symbol": "BTCUSD",
       "qty": 0.003449908,
       "avg_entry_price": 70867.17,
-      "current_price": 81613.8,
-      "market_value": 281.560102,
-      "unrealized_pl": 37.074885,
-      "unrealized_plpc": 15.16,
+      "current_price": 81281.8,
+      "market_value": 280.414732,
+      "unrealized_pl": 35.929515,
+      "unrealized_plpc": 14.7,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "UNH",
       "qty": 0.519655172,
       "avg_entry_price": 290.0,
-      "current_price": 400.6,
-      "market_value": 208.173862,
-      "unrealized_pl": 57.473862,
-      "unrealized_plpc": 38.14,
+      "current_price": 401.43,
+      "market_value": 208.605176,
+      "unrealized_pl": 57.905176,
+      "unrealized_plpc": 38.42,
       "side": "PositionSide.LONG"
     },
     {
@@ -82,15 +82,15 @@
     }
   ],
   "totals": {
-    "total_value": 7128.22,
-    "total_pl": 22.62,
-    "total_plpc": 0.32,
+    "total_value": 7131.36,
+    "total_pl": 25.75,
+    "total_plpc": 0.36,
     "position_count": 8,
-    "updated_at": "2026-10-16T23:27:16.756317+00:00"
+    "updated_at": "2026-10-17T23:00:41.187129+00:00"
   },
   "account": {
     "cash": 22817.63,
-    "portfolio_value": 29945.85,
-    "buying_power": 110209.1
+    "portfolio_value": 29948.99,
+    "buying_power": 110220.55
   }
 }
