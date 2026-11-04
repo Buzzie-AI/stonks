@@ -19,19 +19,18 @@ You open a PR → Claude scores your pitch → Community reviews → PR merged �
 <!-- PORTFOLIO_START -->
 | Symbol | Qty | Avg Cost | Current | Market Value | P&L | Return |
 |--------|-----|----------|---------|-------------|-----|--------|
-| REGN | 2.0 | $737.32 | $967.89 | $1,935.78 | +$461.13 | +31.3% |
-| ABBV | 3.0 | $273.24 | $288.53 | $865.59 | +$45.88 | +5.6% |
-| SYM | 15.0 | $41.00 | $37.38 | $560.70 | $-54.30 | -8.8% |
-| SYY | 5.0 | $73.21 | $81.74 | $408.70 | +$42.64 | +11.7% |
-| BTCUSD | 0.003449908 | $70,867.17 | $76,788.38 | $264.91 | +$20.43 | +8.4% |
-| UNH | 0.519655172 | $290.00 | $399.24 | $207.47 | +$56.77 | +37.7% |
+| REGN | 2.0 | $737.32 | $966.41 | $1,932.82 | +$458.18 | +31.1% |
+| ABBV | 3.0 | $273.24 | $285.06 | $855.18 | +$35.47 | +4.3% |
+| SYM | 15.0 | $41.00 | $37.46 | $561.90 | $-53.10 | -8.6% |
+| BTCUSD | 0.003449908 | $70,867.17 | $76,844.33 | $265.11 | +$20.62 | +8.4% |
+| UNH | 0.519655172 | $290.00 | $398.50 | $207.08 | +$56.38 | +37.4% |
 | 737CVR019 | 4.064262182 | $0.00 | $0.00 | $0.00 | +$0.00 | +0.0% |
 
-**Portfolio Value:** $30,201.99  
-**Cash:** $25,958.84  
-**Total P&L:** +$572.54 (+15.6%)  
-**Positions:** 7  
-*Last updated: 2026-11-03T02:52:13.669133+00:00*
+**Portfolio Value:** $30,153.21  
+**Cash:** $26,331.12  
+**Total P&L:** +$517.55 (+15.7%)  
+**Positions:** 6  
+*Last updated: 2026-11-04T01:12:07.184567+00:00*
 
 ### Pending Orders
 
@@ -40,7 +39,6 @@ You open a PR → Claude scores your pitch → Community reviews → PR merged �
 | ABBV | sell | 3 | - | stop | 2026-10-07 17:18 | new |
 | REGN | sell | 2 | - | stop | 2026-10-01 17:18 | new |
 | SYM | sell | 15 | - | stop | 2026-08-18 13:42 | new |
-| SYY | sell | 5 | - | stop | 2026-08-05 11:00 | new |
 
 <!-- PORTFOLIO_END -->
 
@@ -49,8 +47,8 @@ You open a PR → Claude scores your pitch → Community reviews → PR merged �
 <!-- LEADERBOARD_START -->
 | # | Contributor | Trades | Win Rate | Total P&L | Avg AI Score |
 |---|-------------|--------|----------|-----------|--------------|
-| 1 | @sudharshan-nn | 1 | 100% | +$696.60 | 78 |
-| 2 | @nivychu | 1 | 100% | +$20.93 | 78 |
+| 1 | @sudharshan-nn | 1 | 100% | +$712.75 | 78 |
+| 2 | @nivychu | 1 | 100% | +$20.95 | 78 |
 
 <!-- LEADERBOARD_END -->
 
