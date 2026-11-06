@@ -19,18 +19,17 @@ You open a PR → Claude scores your pitch → Community reviews → PR merged �
 <!-- PORTFOLIO_START -->
 | Symbol | Qty | Avg Cost | Current | Market Value | P&L | Return |
 |--------|-----|----------|---------|-------------|-----|--------|
-| REGN | 2.0 | $737.32 | $936.99 | $1,873.98 | +$399.33 | +27.1% |
-| ABBV | 3.0 | $273.24 | $296.72 | $890.16 | +$70.45 | +8.6% |
-| SYM | 15.0 | $41.00 | $37.21 | $558.15 | $-56.85 | -9.2% |
-| BTCUSD | 0.003449908 | $70,867.17 | $80,291.40 | $277.00 | +$32.51 | +13.3% |
-| UNH | 0.519655172 | $290.00 | $412.80 | $214.51 | +$63.81 | +42.3% |
+| REGN | 2.0 | $737.32 | $896.90 | $1,793.80 | +$319.15 | +21.6% |
+| ABBV | 3.0 | $273.24 | $287.94 | $863.82 | +$44.11 | +5.4% |
+| BTCUSD | 0.003449908 | $70,867.17 | $75,992.00 | $262.17 | +$17.68 | +7.2% |
+| UNH | 0.519655172 | $290.00 | $391.00 | $203.19 | +$52.49 | +34.8% |
 | 737CVR019 | 4.064262182 | $0.00 | $0.00 | $0.00 | +$0.00 | +0.0% |
 
-**Portfolio Value:** $30,144.92  
-**Cash:** $26,331.12  
-**Total P&L:** +$509.26 (+15.4%)  
-**Positions:** 6  
-*Last updated: 2026-11-05T01:25:17.372265+00:00*
+**Portfolio Value:** $29,977.71  
+**Cash:** $26,854.74  
+**Total P&L:** +$433.43 (+16.1%)  
+**Positions:** 5  
+*Last updated: 2026-11-06T01:28:18.928334+00:00*
 
 ### Pending Orders
 
@@ -38,7 +37,6 @@ You open a PR → Claude scores your pitch → Community reviews → PR merged �
 |--------|------|-----|----------|------|-----------|--------|
 | ABBV | sell | 3 | - | stop | 2026-10-07 17:18 | new |
 | REGN | sell | 2 | - | stop | 2026-10-01 17:18 | new |
-| SYM | sell | 15 | - | stop | 2026-08-18 13:42 | new |
 
 <!-- PORTFOLIO_END -->
 
@@ -47,8 +45,8 @@ You open a PR → Claude scores your pitch → Community reviews → PR merged �
 <!-- LEADERBOARD_START -->
 | # | Contributor | Trades | Win Rate | Total P&L | Avg AI Score |
 |---|-------------|--------|----------|-----------|--------------|
-| 1 | @sudharshan-nn | 1 | 100% | +$751.20 | 78 |
-| 2 | @nivychu | 1 | 100% | +$33.52 | 78 |
+| 1 | @sudharshan-nn | 1 | 100% | +$702.50 | 78 |
+| 2 | @nivychu | 1 | 100% | +$18.03 | 78 |
 
 <!-- LEADERBOARD_END -->
 
