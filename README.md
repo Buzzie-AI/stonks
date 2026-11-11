@@ -19,24 +19,25 @@ You open a PR → Claude scores your pitch → Community reviews → PR merged �
 <!-- PORTFOLIO_START -->
 | Symbol | Qty | Avg Cost | Current | Market Value | P&L | Return |
 |--------|-----|----------|---------|-------------|-----|--------|
-| REGN | 2.0 | $737.32 | $919.96 | $1,839.92 | +$365.27 | +24.8% |
-| ABBV | 3.0 | $273.24 | $293.30 | $879.90 | +$60.19 | +7.3% |
-| BTCUSD | 0.003449908 | $70,867.17 | $74,682.06 | $257.65 | +$13.16 | +5.4% |
-| UNH | 0.519655172 | $290.00 | $397.59 | $206.61 | +$55.91 | +37.1% |
+| REGN | 2.0 | $737.32 | $917.00 | $1,834.00 | +$359.36 | +24.4% |
+| ABBV | 3.0 | $273.24 | $292.18 | $876.54 | +$56.83 | +6.9% |
+| BTCUSD | 0.003449908 | $70,867.17 | $73,313.30 | $252.92 | +$8.44 | +3.5% |
+| UNH | 0.519655172 | $290.00 | $405.00 | $210.46 | +$59.76 | +39.7% |
 | 737CVR019 | 4.064262182 | $0.00 | $0.00 | $0.00 | +$0.00 | +0.0% |
 
-**Portfolio Value:** $30,038.82  
+**Portfolio Value:** $30,028.66  
 **Cash:** $26,854.74  
-**Total P&L:** +$494.53 (+18.4%)  
+**Total P&L:** +$484.38 (+18.0%)  
 **Positions:** 5  
-*Last updated: 2026-11-10T03:24:26.005823+00:00*
+*Last updated: 2026-11-11T01:10:59.411207+00:00*
 
 ### Pending Orders
 
 | Symbol | Side | Qty | Notional | Type | Submitted | Status |
 |--------|------|-----|----------|------|-----------|--------|
+| BTC/USD | sell | 0.003449908 | - | stop_limit | 2026-11-10 14:43 | new |
+| REGN | sell | 2 | - | stop | 2026-11-10 14:37 | new |
 | ABBV | sell | 3 | - | stop | 2026-10-07 17:18 | new |
-| REGN | sell | 2 | - | stop | 2026-10-01 17:18 | new |
 
 <!-- PORTFOLIO_END -->
 
@@ -45,8 +46,8 @@ You open a PR → Claude scores your pitch → Community reviews → PR merged �
 <!-- LEADERBOARD_START -->
 | # | Contributor | Trades | Win Rate | Total P&L | Avg AI Score |
 |---|-------------|--------|----------|-----------|--------------|
-| 1 | @sudharshan-nn | 1 | 100% | +$764.30 | 78 |
-| 2 | @nivychu | 1 | 100% | +$13.43 | 78 |
+| 1 | @sudharshan-nn | 1 | 100% | +$776.05 | 78 |
+| 2 | @nivychu | 1 | 100% | +$8.75 | 78 |
 
 <!-- LEADERBOARD_END -->
 
