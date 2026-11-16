@@ -32,7 +32,7 @@ You open a PR → Claude scores your pitch → Community reviews → PR merged �
 **Cash:** $23,280.48  
 **Total P&L:** +$562.75 (+9.0%)  
 **Positions:** 8  
-*Last updated: 2026-11-15T00:57:33.186273+00:00*
+*Last updated: 2026-11-16T00:54:56.710822+00:00*
 
 ### Pending Orders
 
@@ -53,7 +53,7 @@ You open a PR → Claude scores your pitch → Community reviews → PR merged �
 | # | Contributor | Trades | Win Rate | Total P&L | Avg AI Score |
 |---|-------------|--------|----------|-----------|--------------|
 | 1 | @sudharshan-nn | 1 | 100% | +$696.70 | 78 |
-| 2 | @nivychu | 1 | 0% | $-25.90 | 78 |
+| 2 | @nivychu | 1 | 0% | $-20.39 | 78 |
 
 <!-- LEADERBOARD_END -->
 
