@@ -4,70 +4,100 @@
       "symbol": "REGN",
       "qty": 2.0,
       "avg_entry_price": 737.3225,
-      "current_price": 960.0,
-      "market_value": 1920.0,
-      "unrealized_pl": 445.355,
-      "unrealized_plpc": 30.2,
+      "current_price": 948.0,
+      "market_value": 1896.0,
+      "unrealized_pl": 421.355,
+      "unrealized_plpc": 28.57,
+      "side": "PositionSide.LONG"
+    },
+    {
+      "symbol": "LOW",
+      "qty": 8.0,
+      "avg_entry_price": 217.9244,
+      "current_price": 222.78,
+      "market_value": 1782.24,
+      "unrealized_pl": 38.8448,
+      "unrealized_plpc": 2.23,
+      "side": "PositionSide.LONG"
+    },
+    {
+      "symbol": "PRVA",
+      "qty": 60.0,
+      "avg_entry_price": 25.71,
+      "current_price": 24.6,
+      "market_value": 1476.0,
+      "unrealized_pl": -66.6,
+      "unrealized_plpc": -4.32,
+      "side": "PositionSide.LONG"
+    },
+    {
+      "symbol": "TXT",
+      "qty": 15.0,
+      "avg_entry_price": 82.955,
+      "current_price": 82.79,
+      "market_value": 1241.85,
+      "unrealized_pl": -2.475,
+      "unrealized_plpc": -0.2,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "CSCO",
       "qty": 12.0,
       "avg_entry_price": 95.645,
-      "current_price": 95.21,
-      "market_value": 1142.52,
-      "unrealized_pl": -5.22,
-      "unrealized_plpc": -0.46,
+      "current_price": 98.1,
+      "market_value": 1177.2,
+      "unrealized_pl": 29.46,
+      "unrealized_plpc": 2.57,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "TTEK",
       "qty": 23.0,
       "avg_entry_price": 39.145,
-      "current_price": 38.4,
-      "market_value": 883.2,
-      "unrealized_pl": -17.135,
-      "unrealized_plpc": -1.9,
+      "current_price": 38.11,
+      "market_value": 876.53,
+      "unrealized_pl": -23.805,
+      "unrealized_plpc": -2.64,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "ABBV",
       "qty": 3.0,
       "avg_entry_price": 273.2377,
-      "current_price": 292.68,
-      "market_value": 878.04,
-      "unrealized_pl": 58.3269,
-      "unrealized_plpc": 7.12,
+      "current_price": 285.5,
+      "market_value": 856.5,
+      "unrealized_pl": 36.7869,
+      "unrealized_plpc": 4.49,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "DIS",
       "qty": 6.0,
       "avg_entry_price": 121.1552,
-      "current_price": 117.64,
-      "market_value": 705.84,
-      "unrealized_pl": -21.0912,
-      "unrealized_plpc": -2.9,
+      "current_price": 122.31,
+      "market_value": 733.86,
+      "unrealized_pl": 6.9288,
+      "unrealized_plpc": 0.95,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "TU",
       "qty": 46.0,
       "avg_entry_price": 9.5998,
-      "current_price": 9.2732,
-      "market_value": 426.5672,
-      "unrealized_pl": -15.0236,
-      "unrealized_plpc": -3.4,
+      "current_price": 9.51,
+      "market_value": 437.46,
+      "unrealized_pl": -4.1308,
+      "unrealized_plpc": -0.94,
       "side": "PositionSide.LONG"
     },
     {
-      "symbol": "UNH",
-      "qty": 0.519655172,
-      "avg_entry_price": 290.0,
-      "current_price": 388.54,
-      "market_value": 201.906821,
-      "unrealized_pl": 51.206821,
-      "unrealized_plpc": 33.98,
+      "symbol": "SPCX",
+      "qty": 3.0,
+      "avg_entry_price": 144.6895,
+      "current_price": 145.1,
+      "market_value": 435.3,
+      "unrealized_pl": 1.2315,
+      "unrealized_plpc": 0.28,
       "side": "PositionSide.LONG"
     },
     {
@@ -82,15 +112,15 @@
     }
   ],
   "totals": {
-    "total_value": 6158.07,
-    "total_pl": 496.42,
-    "total_plpc": 8.77,
-    "position_count": 8,
-    "updated_at": "2026-11-18T02:49:58.649536+00:00"
+    "total_value": 10912.94,
+    "total_pl": 437.6,
+    "total_plpc": 4.18,
+    "position_count": 11,
+    "updated_at": "2026-11-19T02:28:31.566629+00:00"
   },
   "account": {
-    "cash": 23733.51,
-    "portfolio_value": 29891.58,
-    "buying_power": 111823.37
+    "cash": 18970.1,
+    "portfolio_value": 29883.04,
+    "buying_power": 103686.38
   }
 }
