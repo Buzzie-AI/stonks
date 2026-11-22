@@ -4,20 +4,20 @@
       "symbol": "WMT",
       "qty": 15.0,
       "avg_entry_price": 125.3052,
-      "current_price": 128.1268,
-      "market_value": 1921.902,
-      "unrealized_pl": 42.324,
-      "unrealized_plpc": 2.25,
+      "current_price": 127.95,
+      "market_value": 1919.25,
+      "unrealized_pl": 39.672,
+      "unrealized_plpc": 2.11,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "REGN",
       "qty": 2.0,
       "avg_entry_price": 737.3225,
-      "current_price": 920.59,
-      "market_value": 1841.18,
-      "unrealized_pl": 366.535,
-      "unrealized_plpc": 24.86,
+      "current_price": 920.69,
+      "market_value": 1841.38,
+      "unrealized_pl": 366.735,
+      "unrealized_plpc": 24.87,
       "side": "PositionSide.LONG"
     },
     {
@@ -34,10 +34,10 @@
       "symbol": "IESC",
       "qty": 10.0,
       "avg_entry_price": 168.975,
-      "current_price": 160.0,
-      "market_value": 1600.0,
-      "unrealized_pl": -89.75,
-      "unrealized_plpc": -5.31,
+      "current_price": 156.06,
+      "market_value": 1560.6,
+      "unrealized_pl": -129.15,
+      "unrealized_plpc": -7.64,
       "side": "PositionSide.LONG"
     },
     {
@@ -54,30 +54,30 @@
       "symbol": "AMD",
       "qty": 3.0,
       "avg_entry_price": 445.6301,
-      "current_price": 439.39,
-      "market_value": 1318.17,
-      "unrealized_pl": -18.7203,
-      "unrealized_plpc": -1.4,
+      "current_price": 424.39,
+      "market_value": 1273.17,
+      "unrealized_pl": -63.7203,
+      "unrealized_plpc": -4.77,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "PANW",
       "qty": 3.0,
       "avg_entry_price": 344.05,
-      "current_price": 334.0,
-      "market_value": 1002.0,
-      "unrealized_pl": -30.15,
-      "unrealized_plpc": -2.92,
+      "current_price": 343.32,
+      "market_value": 1029.96,
+      "unrealized_pl": -2.19,
+      "unrealized_plpc": -0.21,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "MRK",
       "qty": 7.0,
       "avg_entry_price": 133.62,
-      "current_price": 133.76,
-      "market_value": 936.32,
-      "unrealized_pl": 0.98,
-      "unrealized_plpc": 0.1,
+      "current_price": 133.72,
+      "market_value": 936.04,
+      "unrealized_pl": 0.7,
+      "unrealized_plpc": 0.07,
       "side": "PositionSide.LONG"
     },
     {
@@ -94,30 +94,30 @@
       "symbol": "JNJ",
       "qty": 3.0,
       "avg_entry_price": 270.3836,
-      "current_price": 270.5189,
-      "market_value": 811.5567,
-      "unrealized_pl": 0.4059,
-      "unrealized_plpc": 0.05,
+      "current_price": 270.47,
+      "market_value": 811.41,
+      "unrealized_pl": 0.2592,
+      "unrealized_plpc": 0.03,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "DIS",
       "qty": 6.0,
       "avg_entry_price": 121.1552,
-      "current_price": 118.22,
-      "market_value": 709.32,
-      "unrealized_pl": -17.6112,
-      "unrealized_plpc": -2.42,
+      "current_price": 117.98,
+      "market_value": 707.88,
+      "unrealized_pl": -19.0512,
+      "unrealized_plpc": -2.62,
       "side": "PositionSide.LONG"
     },
     {
       "symbol": "UNH",
       "qty": 2.0,
       "avg_entry_price": 332.695,
-      "current_price": 335.5,
-      "market_value": 671.0,
-      "unrealized_pl": 5.61,
-      "unrealized_plpc": 0.84,
+      "current_price": 339.85,
+      "market_value": 679.7,
+      "unrealized_pl": 14.31,
+      "unrealized_plpc": 2.15,
       "side": "PositionSide.LONG"
     },
     {
@@ -142,15 +142,15 @@
     }
   ],
   "totals": {
-    "total_value": 15448.99,
-    "total_pl": 349.86,
-    "total_plpc": 2.32,
+    "total_value": 15396.93,
+    "total_pl": 297.81,
+    "total_plpc": 1.97,
     "position_count": 14,
-    "updated_at": "2026-11-21T02:05:10.225637+00:00"
+    "updated_at": "2026-11-22T01:07:59.712387+00:00"
   },
   "account": {
     "cash": 14072.83,
-    "portfolio_value": 29521.82,
-    "buying_power": 97066.09
+    "portfolio_value": 29469.76,
+    "buying_power": 96951.84
   }
 }
